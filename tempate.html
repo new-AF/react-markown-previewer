@@ -177,22 +177,37 @@ function add(a, b) {
 3. item 3
 
 ![free boot camp logo](https://www.freecodecamp.org/icons/icon-144x144.png)
-# Welcome to my React Markdown Previewer!
+# header 1
 
-## This is a sub-heading...
-### And here's some other cool stuff:
+## header 2
 
-Heres some code, \`<div></div>\`, between 2 backticks.
+[link test https://www.freecodecamp.org](https://www.freecodecamp.org)
+
+Inline \`const add= (a,b)=> a+b;\` code.
 
 \`\`\`js
-// this is multi-line code:
+// code block:
 
-function anotherExample(firstLine, lastLine) {
-  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
-	return multiLineCode;
-  }
+function add(a, b) {
+  return a+b;
 }
 \`\`\`
+
+> **If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.**
+
+>\\- Oprah Winfrey
+
+## unordered list
+- item 1
+- item 2
+- item 3
+
+## ordered list
+1. item 1
+2. item 2
+3. item 3
+
+![free boot camp logo](https://www.freecodecamp.org/icons/icon-144x144.png)
 `;
 				//convert markdown to html and
 				const html= marked.parse(text);
