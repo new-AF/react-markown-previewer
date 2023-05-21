@@ -35,9 +35,11 @@
 	
 	<script type="text/babel">
 		const Text= props=>{
+			const {id,style, input:textInput, onchange}= props;
+			
 			//box css
 			const boxStyle={
-				...props.style,
+				...style,
 				'grid-column': '1/2',
 				'box-shadow': '-0em -0em 2em -0.5em black',
 				'resize': 'none',
@@ -57,12 +59,14 @@
 			};
 			return (<div style={boxStyle}>
 				<h2 style={titleStyle}>Editor</h2>
-				<textarea id="editor" style={taStyle} value={props.input} onChange={props.onchange}/>
+				<textarea id="editor" style={taStyle} value={textInput} onChange={onchange}/>
 			</div>);
 		};
 		const Preview= props=>{
+			const {id, style, output}= props;
+			
 			const boxStyle={
-				...props.style,
+				...style,
 				'box-shadow': '-0em -0em 2em -0.1em black',
 				'display': 'grid',
 				'grid-template-rows': 'auto 1fr',
@@ -79,7 +83,7 @@
 			};
 			//innerHTML substitute
 			const contentStyle2={
-				__html: props.output
+				__html: output
 			};
 			const jsx= (<div style={boxStyle}>
 				<h2 style={titleStyle}>Preview</h2>

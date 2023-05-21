@@ -27,3 +27,7 @@ code {
 pre > code {
   display: block;
 }
+hr {
+  border: none;
+  border-top: medium solid;
+}
