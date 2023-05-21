@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>
-		
+		Markdown Previewer
 	</title>
 	<script src="./libraries/babel.min.js"></script>
 	<script src="./libraries/react.development.js"></script>
@@ -25,6 +25,13 @@
 		
 		<div>
 	</main>
+	
+
+	<script>
+		/* pre-set project in test suite and hide window */
+		localStorage.setItem("fCC_markdown-previewer_hide", true);
+		localStorage.setItem("project_selector", "markdown-previewer");
+	</script>
 	
 	<script type="text/babel">
 		const Text= props=>{
@@ -119,68 +126,37 @@
 			}
 			initialText(){
 				const text=
-`# header 1
+`# About Me
+---
+## *I am* Abdullah Fatota
+- *Frontend Developer*
+- *Computer Scientist*
 
-## header 2
+## Some of my projects
+1. Work Break timer [Live App](https://new-af.github.io/) ;; [GitHub Repository](https://github.com/new-AF/react-redux-work-break-timer)
+2. Product Page [Live Page](https://new-af.github.io/)
 
-[link test https://www.freecodecamp.org](https://www.freecodecamp.org)
+## Some preview image of live apps
+1. <img src="https://new-af.github.io/assets/1%20react%20redux%201%20work%20break%20timer.png" width="320" height="auto">
 
-Inline \`const add= (a,b)=> a+b;\` code.
+2. <img src="https://new-af.github.io/assets/3%20html5%20css3%202%20product%20page.png" width="320" height="auto">
 
-\`\`\`js
-// code block:
+## Some of my Code snippets
 
-function add(a, b) {
-  return a+b;
-}
-\`\`\`
+### Inline code
 
-> **If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.**
+\`const add= (a,b)=> a+b;\`
 
->\\- Oprah Winfrey
-
-## unordered list
-- item 1
-- item 2
-- item 3
-
-## ordered list
-1. item 1
-2. item 2
-3. item 3
-
-![free boot camp logo](https://www.freecodecamp.org/icons/icon-144x144.png)
-# header 1
-
-## header 2
-
-[link test https://www.freecodecamp.org](https://www.freecodecamp.org)
-
-Inline \`const add= (a,b)=> a+b;\` code.
+### Code Block
 
 \`\`\`js
-// code block:
+const add = (a, b) => {
+  
+  const result = a + b;
 
-function add(a, b) {
-  return a+b;
+  return result;
 }
 \`\`\`
-
-> **If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.**
-
->\\- Oprah Winfrey
-
-## unordered list
-- item 1
-- item 2
-- item 3
-
-## ordered list
-1. item 1
-2. item 2
-3. item 3
-
-![free boot camp logo](https://www.freecodecamp.org/icons/icon-144x144.png)
 `;
 				return text;
 			}
