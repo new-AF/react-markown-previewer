@@ -35,35 +35,25 @@
 	
 	<script type="text/babel">
 		const Edit= props=>{
-			const {id,style, input:textInput, onchange}= props;
-			
-			//box css
-			const boxStyle={
-				...style,
-				'grid-column': '1',
-				'box-shadow': '-0em -0em 2em -0.5em black',
-				'resize': 'none',
-				'display': 'grid',
-				'grid-template-rows': 'auto 1fr',
-				'align-content': 'stretch',
-				'align-items': 'stretch',
+			const {
+				id,
+				headerId,
+				textareaId,
 
-			};
-			const titleStyle={
-				'text-align': 'center'
-			};
-			//textarea style
-			const taStyle={
-				'resize': 'none',
-				'padding': '5%'
-			};
-			return (<div id={id} style={boxStyle}>
-				<h2 style={titleStyle}>Editor</h2>
-				<textarea style={taStyle} value={textInput} onChange={onchange}/>
+				style,
+				headerStyle,
+				textareaStyle,
+
+				input:textInput,
+				onchange}= props;
+
+			return (<div id={id} style={style}>
+				<h2 id={headerId} style={headerStyle}>Editor</h2>
+				<textarea id={textareaId} style={textareaStyle} value={textInput} onChange={onchange}/>
 			</div>);
 		};
 		const Preview= props=>{
-			const {id, style, output}= props;
+			const {id,headerId, style, output}= props;
 			
 			const boxStyle={
 				...style,
@@ -86,7 +76,7 @@
 				__html: output
 			};
 			const jsx= (<div id={id} style={boxStyle}>
-				<h2 style={titleStyle}>Preview</h2>
+				<h2 id={headerId} style={titleStyle}>Preview</h2>
 				<div style={contentStyle} dangerouslySetInnerHTML={contentStyle2}></div>
 			</div>);
 						
@@ -165,21 +155,19 @@ const add = (a, b) => {
 				return text;
 			}
 			render(){
-				const titleStyle={
-					'grid-column':'1/span 2',
-					'justify-self': 'center',
-					'align-self': 'center',
-					'text-align':'center'
-				};
-				const byStyle={
-					...titleStyle,
-				};
 
 				return (<div id="app">
-					<h1 style={titleStyle}>Markdown Previewer</h1>
-					<Edit id="edit" input={this.state.input} onchange={this.inputOnChange}/>
+					<h1 id="header">Markdown Previewer</h1>
+					<Edit
+						id="edit"
+						input={this.state.input}
+						onchange={this.inputOnChange}
+
+						headerId="edit-header"
+						textareaId="edit-textarea"
+					/>
 					<Preview id="preview" output={this.state.output}/>
-					<div style={byStyle}>by Abdullah Fatota</div>
+					<div id="footer">by Abdullah Fatota</div>
 				</div>);
 			}
 		}
