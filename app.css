@@ -29,7 +29,7 @@ body {
 #edit-header {
   text-align: center;
 }
-#edit-textarea {
+#editor {
   resize: none;
   padding: 5%;
 }
