@@ -5,6 +5,13 @@
 body {
   margin: 0;
 }
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr minmax(auto, 5fr) 0.5fr;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+}
 #preview * {
   font-family: sans-serif;
 }
