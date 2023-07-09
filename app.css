@@ -12,7 +12,6 @@ body {
     display: grid;
     grid-template-rows: 0.5fr minmax(auto, 5fr) 0.5fr;
     grid-template-columns: 1fr 2fr;
-    grid-gap: 1em;
 
     /* hide fcc breadcrum menu */
     z-index: 9999999 !important;
@@ -35,17 +34,24 @@ body {
 }
 #edit {
     grid-column: 1;
-    box-shadow: -0em -0em 2em -0.5em black;
     resize: none;
     display: grid;
     grid-template-rows: auto 1fr;
     align-content: stretch;
     align-items: stretch;
+
+    border-right: medium solid black;
+    border-top: medium solid black;
+    border-bottom: medium solid black;
 }
 
 /* ---------------------- preview pane ---------------------- */
 #preview-div {
     overflow-x: scroll;
+
+    border-left: medium solid black;
+    border-top: medium solid black;
+    border-bottom: medium solid black;
 }
 #preview * {
     font-family: sans-serif;
@@ -89,6 +95,7 @@ Prism.js puts on elements it produces.
         grid-template-columns: 1fr;
         grid-template-rows: 5rem repeat(2, 1fr) 5rem;
         padding: 0 2.5%;
+        gap: 1rem 0;
     }
     #app > h1 {
         grid-column: 1;
@@ -96,6 +103,10 @@ Prism.js puts on elements it produces.
     #edit {
         grid-column: 1;
         grid-row: 2;
+        box-shadow: -0em -0em 2em -0.5em black;
+    }
+    #preview-div {
+        box-shadow: -0em -0em 2em -0.1em black;
     }
     #preview {
         grid-column: 1;
