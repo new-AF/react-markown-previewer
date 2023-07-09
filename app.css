@@ -14,7 +14,7 @@ body {
 #app {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 0.5fr minmax(auto, 5fr) 0.5fr;
+    grid-template-rows: 8rem minmax(auto, 5fr) 4rem;
     grid-template-columns: 2fr 3fr;
 
     /* hide fcc breadcrum menu */
