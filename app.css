@@ -40,18 +40,17 @@ body {
     align-content: stretch;
     align-items: stretch;
 
-    border-right: medium solid black;
-    border-top: medium solid black;
-    border-bottom: medium solid black;
+    border-top: medium solid lightgray;
+    border-bottom: medium solid lightgray;
 }
 
 /* ---------------------- preview pane ---------------------- */
 #preview-div {
     overflow-x: scroll;
 
-    border-left: medium solid black;
-    border-top: medium solid black;
-    border-bottom: medium solid black;
+    border-left: medium dashed lightgray;
+    border-top: medium solid lightgray;
+    border-bottom: medium solid lightgray;
 }
 #preview * {
     font-family: sans-serif;
@@ -80,7 +79,12 @@ Prism.js puts on elements it produces.
     border: none;
     border-top: medium solid;
 }
-
+#edit-header,
+#preview-header {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: medium solid rgba(211, 211, 211, 0.5);
+}
 /* ---------------------- footer ---------------------- */
 #footer {
     grid-column: 1 / span 2;
