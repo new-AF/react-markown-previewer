@@ -114,9 +114,11 @@ Prism.js puts on elements it produces.
         grid-column: 1;
         grid-row: 2;
         box-shadow: -0em -0em 2em -0.5em black;
+        border: none;
     }
     #preview-div {
         box-shadow: -0em -0em 2em -0.1em black;
+        border: none;
     }
     #preview {
         grid-column: 1;
