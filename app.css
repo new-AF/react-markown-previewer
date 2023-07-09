@@ -1,5 +1,6 @@
 :root {
     --sans-serif: Verdana, Tahoma, Arial, sans-serif;
+    --mono: "Lucida Console", Consolas, monospace;
 }
 * {
     border: 0px solid black;
@@ -73,6 +74,7 @@ Prism.js puts on elements it produces.
     color: #999 !important;
     padding: 0.5em !important;
     border-radius: 0.5em !important;
+    font-family: var(--mono);
 }
 #preview pre > code {
     display: block;
