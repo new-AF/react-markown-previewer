@@ -1,54 +1,54 @@
 * {
-  border: 0px solid black;
-  font-family: "Consolas", "Lucida Console", monospace, "Tahoma", sans-serif;
+    border: 0px solid black;
+    font-family: "Consolas", "Lucida Console", monospace, "Tahoma", sans-serif;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 /* ---------------------- #app ---------------------- */
 #app {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: 0.5fr minmax(auto, 5fr) 0.5fr;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 1em;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 0.5fr minmax(auto, 5fr) 0.5fr;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 1em;
 
-  /* hide fcc breadcrum menu */
-  z-index: 9999999 !important;
+    /* hide fcc breadcrum menu */
+    z-index: 9999999 !important;
 }
 /* ---------------------- #header ---------------------- */
 #header {
-  grid-column: 1 / span 2;
-  justify-self: center;
-  align-self: center;
-  text-align: center;
+    grid-column: 1 / span 2;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
 }
 
 /* ---------------------- editor pane ---------------------- */
 #edit-header {
-  text-align: center;
+    text-align: center;
 }
 #editor {
-  resize: none;
-  padding: 5%;
+    resize: none;
+    padding: 5%;
 }
 #edit {
-  grid-column: 1;
-  box-shadow: -0em -0em 2em -0.5em black;
-  resize: none;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  align-content: stretch;
-  align-items: stretch;
+    grid-column: 1;
+    box-shadow: -0em -0em 2em -0.5em black;
+    resize: none;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-content: stretch;
+    align-items: stretch;
 }
 
 /* ---------------------- preview pane ---------------------- */
 #preview-div {
-  overflow-x: scroll;
+    overflow-x: scroll;
 }
 #preview * {
-  font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 /*
@@ -59,50 +59,50 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
 Prism.js puts on elements it produces.
 */
 #preview code {
-  display: inline-block;
-  background-color: #2d2d2d !important;
-  color: #999 !important;
-  padding: 0.5em !important;
-  border-radius: 0.5em !important;
+    display: inline-block;
+    background-color: #2d2d2d !important;
+    color: #999 !important;
+    padding: 0.5em !important;
+    border-radius: 0.5em !important;
 }
 #preview pre > code {
-  display: block;
+    display: block;
 }
 
 /* bugfix invisible hr s */
 #preview hr {
-  border: none;
-  border-top: medium solid;
+    border: none;
+    border-top: medium solid;
 }
 
 /* ---------------------- footer ---------------------- */
 #footer {
-  grid-column: 1 / span 2;
-  justify-self: center;
-  align-self: center;
-  text-align: center;
+    grid-column: 1 / span 2;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
 }
 
 /* ---------------------- mobile views ---------------------- */
 @media only screen and (max-width: 767px) {
-  #app {
-    grid-template-columns: 1fr;
-    grid-template-rows: 5rem repeat(2, 1fr) 5rem;
-    padding: 0 2.5%;
-  }
-  #app > h1 {
-    grid-column: 1;
-  }
-  #edit {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  #preview {
-    grid-column: 1;
-    grid-row: 3;
-  }
-  #footer {
-    grid-column: 1;
-    grid-row: 4;
-  }
+    #app {
+        grid-template-columns: 1fr;
+        grid-template-rows: 5rem repeat(2, 1fr) 5rem;
+        padding: 0 2.5%;
+    }
+    #app > h1 {
+        grid-column: 1;
+    }
+    #edit {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    #preview {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    #footer {
+        grid-column: 1;
+        grid-row: 4;
+    }
 }
