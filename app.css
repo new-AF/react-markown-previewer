@@ -1,3 +1,6 @@
+:root {
+    --sans-serif: Verdana, Tahoma, Arial, sans-serif;
+}
 * {
     border: 0px solid black;
     font-family: "Consolas", "Lucida Console", monospace, "Tahoma", sans-serif;
@@ -11,7 +14,7 @@ body {
     min-height: 100vh;
     display: grid;
     grid-template-rows: 0.5fr minmax(auto, 5fr) 0.5fr;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
 
     /* hide fcc breadcrum menu */
     z-index: 9999999 !important;
@@ -22,6 +25,7 @@ body {
     justify-self: center;
     align-self: center;
     text-align: center;
+    font-family: var(--sans-serif);
 }
 
 /* ---------------------- editor pane ---------------------- */
@@ -53,7 +57,7 @@ body {
     border-bottom: medium solid lightgray;
 }
 #preview * {
-    font-family: sans-serif;
+    font-family: var(--sans-serif);
 }
 
 /*
@@ -84,6 +88,7 @@ Prism.js puts on elements it produces.
     margin: 0;
     padding: 1rem;
     border-bottom: medium solid rgba(211, 211, 211, 0.5);
+    font-family: var(--sans-serif);
 }
 /* ---------------------- footer ---------------------- */
 #footer {
@@ -91,6 +96,7 @@ Prism.js puts on elements it produces.
     justify-self: center;
     align-self: center;
     text-align: center;
+    font-family: var(--sans-serif);
 }
 
 /* ---------------------- mobile views ---------------------- */
