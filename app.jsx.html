@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>
-		Markdown Previewer
+		Markdown Viewer
 	</title>
 	<script src="./libraries/babel.min.js"></script>
 	<script src="./libraries/react.development.js"></script>
@@ -22,11 +22,9 @@
 <body>
 	<main>
 		<div id="react-container-1" class="react-container">
-		
 		<div>
 	</main>
 	
-
 	<script>
 		/* pre-set project in test suite and hide window */
 		localStorage.setItem("fCC_markdown-previewer_hide", true);
@@ -81,7 +79,7 @@
 				__html: output
 			};
 			const jsx= (<div id={id} style={boxStyle}>
-				<h2 id={headerId} style={titleStyle}>Preview</h2>
+				<h2 id={headerId} style={titleStyle}>Viewer</h2>
 				<div id={contentId} style={contentStyle} dangerouslySetInnerHTML={contentStyle2}></div>
 			</div>);
 						
@@ -166,7 +164,7 @@ const add = (a, b) => {
 			render(){
 
 				return (<div id="app">
-					<h1 id="header">Markdown Previewer</h1>
+					<h1 id="header">Markdown Viewer</h1>
 					<Edit
 						id="edit"
 						input={this.state.input}

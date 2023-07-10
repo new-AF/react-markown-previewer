@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>
+		Markdown Viewer
+	</title>
+	<script src="./libraries/babel.min.js"></script>
+	<script src="./libraries/react.development.js"></script>
+	<script src="./libraries/react-dom.development.js"></script>
+	<script src="./libraries/marked.min.js"></script>
+	
+	<!-- code highlighting library prism.js -->
+	<link rel="stylesheet" href="./libraries/prism.css">
+	
+	<!-- styles -->
+	<link rel="stylesheet" href="./app.css">
+	
+</head>
+  
+<body>
+	<main>
+		<div id="react-container-1" class="react-container">
+		<div>
+	</main>
+	
+	<script>
+		/* pre-set project in test suite and hide window */
+		localStorage.setItem("fCC_markdown-previewer_hide", true);
+		localStorage.setItem("project_selector", "markdown-previewer");
+	</script>
+	
+	<script type="module" src="./src/main.jsx"></script>
+
+	<script src="./libraries/test bundle.js"></script>
+	<script src="./libraries/prism.js"></script>
+	
+</body>
+
+</html>
