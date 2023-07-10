@@ -1,3 +1,7 @@
+.gitignore
+.vite
+.yaml
+
 # Logs
 logs
 *.log
