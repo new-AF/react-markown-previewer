@@ -1,5 +1,5 @@
 :root {
-    --sans-serif: Verdana, Tahoma, Arial, sans-serif;
+    --sans-serif: Tahoma, Verdana, Arial, sans-serif;
     --mono: "Lucida Console", Consolas, monospace;
 }
 * {
@@ -14,14 +14,17 @@ body {
 #app {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 8rem minmax(auto, 5fr) 4rem;
+    grid-template-rows: auto minmax(auto, 5fr) 5rem;
     grid-template-columns: 2fr 3fr;
 
     /* hide fcc breadcrum menu */
     z-index: 9999999 !important;
+
+    padding: 0 4rem;
 }
 /* ---------------------- #header ---------------------- */
 #header {
+    padding: 4rem 0;
     grid-column: 1 / span 2;
     justify-self: center;
     align-self: center;
@@ -30,13 +33,6 @@ body {
 }
 
 /* ---------------------- editor pane ---------------------- */
-#edit-header {
-    text-align: center;
-}
-#editor {
-    resize: none;
-    padding: 5%;
-}
 #edit {
     grid-column: 1;
     resize: none;
@@ -45,17 +41,63 @@ body {
     align-content: stretch;
     align-items: stretch;
 
-    border-top: medium solid lightgray;
-    border-bottom: medium solid lightgray;
+    border-top: medium solid transparent;
+    /* border-right: medium dashed lightblue; */
+    /* border-left: medium solid lightgray; */
+
+    /* border-bottom: medium solid lightgray; */
+    border-top-left-radius: 2rem !important;
+    border-bottom-left-radius: 2rem !important;
+
+    box-shadow: 1px 1px 1rem 1px navy inset;
+}
+#edit-header {
+    justify-self: center;
+    text-align: center;
+
+    margin: 0;
+    /* padding: 1rem; */
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: medium double rgb(0, 0, 128, 0.25);
+    color: rgba(0, 0, 128, 0.5);
+    font-family: var(--sans-serif);
+}
+#editor {
+    resize: none;
+    padding: 1rem 1rem;
+    margin: 0 1rem;
+    margin-bottom: 1rem;
+    /* border-radius: 1rem; */
+    /* border-top-left-radius: 1rem; */
+    border-bottom-left-radius: 2rem;
+    /* box-shadow: 1px 1px 5px 10px navajowhite; */
+}
+#editor:focus-visible {
+    outline: none;
 }
 
 /* ---------------------- preview pane ---------------------- */
 #preview-div {
-    overflow-x: scroll;
+    border-top: medium solid transparent;
 
-    border-left: medium dashed lightgray;
-    border-top: medium solid lightgray;
-    border-bottom: medium solid lightgray;
+    border-top-right-radius: 2rem;
+
+    box-shadow: 1px 1px 2rem 1px darkgray;
+}
+#preview-header {
+    text-align: center;
+
+    margin: 0;
+    padding: 1rem;
+
+    /* border-bottom: medium solid rgba(211, 211, 211, 0.5); */
+    font-family: var(--sans-serif);
+}
+#preview {
+    overflow-x: scroll;
+    padding-left: 2rem;
+    box-shadow: 1px 1px 2rem 1px darkgray;
 }
 #preview * {
     font-family: var(--sans-serif);
@@ -80,18 +122,12 @@ Prism.js puts on elements it produces.
     display: block;
 }
 
-/* bugfix invisible hr s */
+/* markdown `---` translated to <hr/> */
 #preview hr {
     border: none;
     border-top: medium solid;
 }
-#edit-header,
-#preview-header {
-    margin: 0;
-    padding: 1rem;
-    border-bottom: medium solid rgba(211, 211, 211, 0.5);
-    font-family: var(--sans-serif);
-}
+
 /* ---------------------- footer ---------------------- */
 #footer {
     grid-column: 1 / span 2;
