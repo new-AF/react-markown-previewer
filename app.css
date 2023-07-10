@@ -52,14 +52,13 @@ body {
     box-shadow: 1px 1px 1rem 1px navy inset;
 }
 #edit-header {
-    justify-self: center;
     text-align: center;
 
     margin: 0;
     /* padding: 1rem; */
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: medium double rgb(0, 0, 128, 0.25);
+    border-bottom: medium inset rgba(0, 0, 128, 0.25);
     color: rgba(0, 0, 128, 0.5);
     font-family: var(--sans-serif);
 }
@@ -141,9 +140,9 @@ Prism.js puts on elements it produces.
 @media only screen and (max-width: 767px) {
     #app {
         grid-template-columns: 1fr;
-        grid-template-rows: 5rem repeat(2, 1fr) 5rem;
-        padding: 0 2.5%;
-        gap: 1rem 0;
+        grid-template-rows: auto 50vh 1fr 5rem;
+        gap: 2rem 0;
+        padding: 0 4rem;
     }
     #app > h1 {
         grid-column: 1;
@@ -151,12 +150,24 @@ Prism.js puts on elements it produces.
     #edit {
         grid-column: 1;
         grid-row: 2;
-        box-shadow: -0em -0em 2em -0.5em black;
+        box-shadow: -0em -1em 2em -0.5em darkgray;
         border: none;
+        border-top-right-radius: 2rem;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+
+        border-bottom: medium inset rgba(0, 0, 128, 0.25);
+    }
+    #edit-header {
+    }
+    #editor {
+        margin-right: 0;
+        margin-bottom: 0;
     }
     #preview-div {
-        box-shadow: -0em -0em 2em -0.1em black;
+        box-shadow: -0em 1em 2em -0.1em darkgray;
         border: none;
+        border-top-left-radius: 2rem;
     }
     #preview {
         grid-column: 1;
