@@ -6,4 +6,4 @@ Supported features include Headers, Code Blocks, Links, Ordered and Unordered li
 
 [Select the project and try it live!](https://new-af.github.io/)
 
-<img src="./assets/app live preview.png" alt="preview image of live app"/>
+<img src="./public/app live preview.png" alt="preview image of live app"/>
