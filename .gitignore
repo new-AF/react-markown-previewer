@@ -1,6 +1,6 @@
 .gitignore
 .vite
-.yaml
+*.yaml
 
 # Logs
 logs
