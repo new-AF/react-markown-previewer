@@ -24,12 +24,13 @@ body {
 }
 /* ---------------------- #header ---------------------- */
 #header {
-    padding: 4rem 0;
+    padding: 2rem 0;
     grid-column: 1 / span 2;
     justify-self: center;
     align-self: center;
     text-align: center;
     font-family: var(--sans-serif);
+    padding-bottom: 3rem;
 }
 
 /* ---------------------- editor pane ---------------------- */
@@ -96,7 +97,7 @@ body {
 #preview {
     overflow-x: scroll;
     padding-left: 2rem;
-    box-shadow: 1px 1px 2rem 1px darkgray;
+    box-shadow: 1px 0.5rem 2rem 1px darkgray;
 }
 #preview * {
     font-family: var(--sans-serif);
