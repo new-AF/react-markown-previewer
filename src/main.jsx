@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
 import { marked } from "marked";
 
 const Edit = (props) => {
@@ -171,4 +172,9 @@ return result;
 }
 
 const container = document.querySelector("#react-container-1");
-ReactDOM.render(<App />, container);
+const root = ReactDOM.createRoot(container);
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);
