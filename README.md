@@ -1,9 +1,9 @@
 # Markdown Previewer
 
-App to convert Markdown text, for example, #Header 1 , to styled and formatted text as **Header 1**.
+Render Markdown text as you type, for example, #Header 1 , is converted to styled and formatted text as **Header 1**.
 
 Supported features include Headers, Code Blocks, Links, Ordered and Unordered lists and Embedded Images.
 
-[Select the project and try it live!](https://new-af.github.io/)
+[Run the App!](https://new-af.github.io/)
 
-<img src="./public/app live preview.png" alt="preview image of live app"/>
+<img src="./public/preview.png" alt="preview image of live app"/>
