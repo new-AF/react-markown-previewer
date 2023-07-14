@@ -45,8 +45,7 @@ class App extends React.Component {
         const text = `# About Me
 ---
 ## *I am* Abdullah Fatota
-- *Frontend Developer*
-- *Computer Scientist*
+- *Software Engineer*
 
 ## Some of my projects
 1. **Work Break timer** [Live App](https://new-af.github.io/) ;; [GitHub Repository](https://github.com/new-AF/react-redux-work-break-timer)
