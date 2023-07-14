@@ -48,7 +48,7 @@ class App extends React.Component {
 - *Software Engineer*
 
 ## Some of my projects
-1. **Work Break timer** [Live App](https://new-af.github.io/) ;; [GitHub Repository](https://github.com/new-AF/react-redux-work-break-timer)
+1. **Work Break timer** [Live App](https://new-af.github.io/) \[[GitHub Repository](https://github.com/new-AF/react-redux-work-break-timer)\]
 2. **Product Page** [Live Page](https://new-af.github.io/)
 
 ## Some preview images of live apps
