@@ -1,48 +1,69 @@
 import React from "react";
 import { marked } from "marked";
 
+import { useState, useEffect } from "react";
+
 import Edit from "./components/Edit";
 import Preview from "./components/Preview";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
+function App() {
+    const [state, setState] = useState({
+        output: "",
+        input: initialText,
+    });
 
-        //pass optional test, convert line breaks to <br> and
-        //set highlighter.
-        marked.setOptions({ gfm: true, breaks: true });
-        marked.setOptions({
-            highlight: (text, lang0) => {
-                const lang = Prism.languages.hasOwnProperty(lang0)
-                    ? lang0
-                    : "plaintext";
-                return Prism.highlight(text, Prism.languages[lang], lang);
-            },
-        });
-        this.state = {
-            output: "",
-            input: this.initialText(),
-        };
-        this.inputOnChange = this.inputOnChange.bind(this);
-        this.newState = this.newState.bind(this);
-        this.initialText = this.initialText.bind(this);
-        //pass 8th & last test
-        window.onload = (e) =>
-            this.setState({ output: marked.parse(this.state.input) });
-    }
     //only place that changes state
-    newState(object) {
-        this.setState((prevState) => object);
+    function newState(object) {
+        setState((prevState) => object);
     }
-    inputOnChange(event) {
+
+    function inputOnChange(event) {
         const text = event.target.value;
 
         //convert markdown to html and
         const html = marked.parse(text);
-        this.newState({ input: text, output: html });
+        newState({ input: text, output: html });
     }
-    initialText() {
-        const text = `# About Me
+
+    //do only once;
+    useEffect(() => {
+        //to pass 8th & last test
+        window.onload = (event) =>
+            newState({ output: marked.parse(state.input) });
+    }, []);
+
+    return (
+        <div id="app">
+            <h1 id="header">Markdown Viewer</h1>
+            <Edit
+                id="edit"
+                input={state.input}
+                onchange={inputOnChange}
+                headerId="edit-header"
+                textareaId="editor"
+            />
+            <Preview
+                id="preview-div"
+                headerId="preview-header"
+                contentId="preview"
+                output={state.output}
+            />
+            <div id="footer">by Abdullah Fatota</div>
+        </div>
+    );
+}
+//pass optional test, convert line breaks to <br> and
+//set highlighter.
+marked.setOptions({ gfm: true, breaks: true });
+marked.setOptions({
+    highlight: (text, lang0) => {
+        const lang = Prism.languages.hasOwnProperty(lang0)
+            ? lang0
+            : "plaintext";
+        return Prism.highlight(text, Prism.languages[lang], lang);
+    },
+});
+const initialText = `# About Me
 ---
 ## *I am* Abdullah Fatota
 - *Software Engineer*
@@ -77,28 +98,5 @@ return result;
 
 > This is a block quote
 `;
-        return text;
-    }
-    render() {
-        return (
-            <div id="app">
-                <h1 id="header">Markdown Viewer</h1>
-                <Edit
-                    id="edit"
-                    input={this.state.input}
-                    onchange={this.inputOnChange}
-                    headerId="edit-header"
-                    textareaId="editor"
-                />
-                <Preview
-                    id="preview-div"
-                    headerId="preview-header"
-                    contentId="preview"
-                    output={this.state.output}
-                />
-                <div id="footer">by Abdullah Fatota</div>
-            </div>
-        );
-    }
-}
+
 export default App;
