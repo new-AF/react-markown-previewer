@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Preview.css";
+
 const Preview = (props) => {
     const {
         id,
@@ -12,14 +14,8 @@ const Preview = (props) => {
 
     const boxStyle = {
         ...style,
-        display: "grid",
-        "grid-template-rows": "auto 1fr",
-        "align-content": "stretch",
-        "align-items": "stretch",
     };
-    const titleStyle = {
-        "text-align": "center",
-    };
+    const titleStyle = {};
 
     const contentStyle = {};
     //innerHTML substitute

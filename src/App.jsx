@@ -1,10 +1,11 @@
-import React from "react";
 import { marked } from "marked";
 
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 
 import Edit from "./components/Edit";
 import Preview from "./components/Preview";
+
+import "./App.css";
 
 function App() {
     const [state, setState] = useState({
@@ -17,12 +18,16 @@ function App() {
         setState((prevState) => object);
     }
 
-    function inputOnChange(event) {
-        const text = event.target.value;
-
+    //set input; convert it to markdown
+    function setInput(text) {
         //convert markdown to html and
         const html = marked.parse(text);
         newState({ input: text, output: html });
+    }
+
+    function inputOnChange(event) {
+        const text = event.target.value;
+        setInput(text);
     }
 
     //do only once;

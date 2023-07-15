@@ -3,6 +3,7 @@ import boldIconPath from "../assets/bold-solid.svg";
 
 import "./Controls.css";
 import "./Button.css";
+import "./Edit.css";
 
 function Button({ text, imagePath }) {
     // get reference to current object

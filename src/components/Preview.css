@@ -1,0 +1,69 @@
+:root {
+    /* preview-div border radius */
+    --preview-div-br: 1rem;
+}
+#preview-div {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-content: stretch;
+    align-items: stretch;
+
+    border-top: medium solid transparent;
+
+    border-top-right-radius: var(--preview-div-br);
+
+    box-shadow: 1px 1px 2rem 1px darkgray;
+}
+#preview-header {
+    text-align: center;
+
+    margin: 0;
+    padding: 1rem;
+
+    /* border-bottom: medium solid rgba(211, 211, 211, 0.5); */
+    font-family: var(--sans-serif);
+}
+#preview {
+    overflow-x: scroll;
+    padding-left: 2rem;
+    box-shadow: 1px 0.5rem 2rem 1px darkgray;
+}
+#preview * {
+    font-family: var(--sans-serif);
+}
+
+/*
+styles color values taken from
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript
+
+!important keyword needed to override the styling
+Prism.js puts on elements it produces.
+*/
+#preview code {
+    display: inline-block;
+    background-color: #2d2d2d !important;
+    color: #999 !important;
+    padding: 0.5em !important;
+    border-radius: 0.5em !important;
+    font-family: var(--mono);
+}
+#preview pre > code {
+    display: block;
+}
+
+/* markdown `---` translated to <hr/> */
+#preview hr {
+    border: none;
+    border-top: medium solid;
+}
+@media only screen and (max-width: 767px) {
+    #preview-div {
+        box-shadow: -0em 1em 2em -0.1em darkgray;
+        border: none;
+        border-top-left-radius: var(--preview-div-br);
+    }
+    #preview {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
