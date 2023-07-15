@@ -28,8 +28,7 @@ function App() {
     //do only once;
     useEffect(() => {
         //to pass 8th & last test
-        window.onload = (event) =>
-            newState({ output: marked.parse(state.input) });
+        newState({ output: marked.parse(state.input) });
     }, []);
 
     return (
