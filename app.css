@@ -1,6 +1,12 @@
 :root {
     --sans-serif: Tahoma, Verdana, Arial, sans-serif;
     --mono: "Lucida Console", Consolas, monospace;
+
+    /*  edit border radius*/
+    --edit-br: 1rem;
+
+    /* preview-div border radius */
+    --preview-div-br: 1rem;
 }
 * {
     border: 0px solid black;
@@ -38,21 +44,25 @@ body {
     grid-column: 1;
     resize: none;
     display: grid;
-    grid-template-rows: auto 1fr;
+
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+        "edit-header"
+        "edit-controls"
+        "edit-textarea";
+
     align-content: stretch;
     align-items: stretch;
 
     border-top: medium solid transparent;
-    /* border-right: medium dashed lightblue; */
-    /* border-left: medium solid lightgray; */
-
-    /* border-bottom: medium solid lightgray; */
-    border-top-left-radius: 2rem !important;
-    border-bottom-left-radius: 2rem !important;
+    border-top-left-radius: var(--edit-br) !important;
+    border-bottom-left-radius: var(--edit-br) !important;
 
     box-shadow: 1px 1px 1rem 1px navy inset;
 }
+
 #edit-header {
+    grid-area: edit-header;
     text-align: center;
 
     margin: 0;
@@ -64,14 +74,12 @@ body {
     font-family: var(--sans-serif);
 }
 #editor {
+    grid-area: edit-textarea;
     resize: none;
     padding: 1rem 1rem;
     margin: 0 1rem;
     margin-bottom: 1rem;
-    /* border-radius: 1rem; */
-    /* border-top-left-radius: 1rem; */
     border-bottom-left-radius: 2rem;
-    /* box-shadow: 1px 1px 5px 10px navajowhite; */
 }
 #editor:focus-visible {
     outline: none;
@@ -81,7 +89,7 @@ body {
 #preview-div {
     border-top: medium solid transparent;
 
-    border-top-right-radius: 2rem;
+    border-top-right-radius: var(--preview-div-br);
 
     box-shadow: 1px 1px 2rem 1px darkgray;
 }
@@ -153,7 +161,7 @@ Prism.js puts on elements it produces.
         grid-row: 2;
         box-shadow: -0em -1em 2em -0.5em darkgray;
         border: none;
-        border-top-right-radius: 2rem;
+        border-top-right-radius: var(--edit-br);
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
 
@@ -168,7 +176,7 @@ Prism.js puts on elements it produces.
     #preview-div {
         box-shadow: -0em 1em 2em -0.1em darkgray;
         border: none;
-        border-top-left-radius: 2rem;
+        border-top-left-radius: var(--preview-div-br);
     }
     #preview {
         grid-column: 1;

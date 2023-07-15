@@ -1,0 +1,10 @@
+.button {
+    cursor: pointer;
+    display: grid;
+
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.button:hover {
+    backdrop-filter: brightness(0.8);
+}
