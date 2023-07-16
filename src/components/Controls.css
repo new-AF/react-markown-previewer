@@ -2,7 +2,7 @@
     --padding-left: 2rem;
 }
 #controls {
-    grid-area: edit-controls;
+    grid-area: controls;
     border-bottom: thin solid lightskyblue;
     padding-left: var(--padding-left);
 }

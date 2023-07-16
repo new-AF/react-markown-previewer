@@ -1,6 +1,9 @@
 :root {
     /*  edit border radius*/
-    --edit-br: 1rem;
+    --border-radius: 1rem;
+    --padding-top: 1rem;
+    --margin-right: 1rem;
+    --margin-bottom: 1rem;
 }
 #edit {
     grid-column: 1;
@@ -9,22 +12,22 @@
 
     grid-template-rows: auto auto 1fr;
     grid-template-areas:
-        "edit-header"
-        "edit-controls"
-        "edit-textarea";
+        "header header"
+        "controls controls"
+        "count textarea";
 
     align-content: stretch;
     align-items: stretch;
 
     border-top: medium solid transparent;
-    border-top-left-radius: var(--edit-br) !important;
-    border-bottom-left-radius: var(--edit-br) !important;
+    border-top-left-radius: var(--border-radius) !important;
+    border-bottom-left-radius: var(--border-radius) !important;
 
     box-shadow: 1px 1px 1rem 1px navy inset;
 }
 
 #edit-header {
-    grid-area: edit-header;
+    grid-area: header;
     text-align: center;
 
     margin: 0;
@@ -36,15 +39,21 @@
     font-family: var(--sans-serif);
 }
 #editor {
-    grid-area: edit-textarea;
+    grid-area: textarea;
     resize: none;
-    padding: 1rem 1rem;
-    margin: 0 1rem;
-    margin-bottom: 1rem;
+    padding: var(--padding-top) var(--padding-top);
+    margin: 0 var(--margin-right);
+    margin-bottom: var(--margin-bottom);
     border-bottom-left-radius: 2rem;
 }
 #editor:focus-visible {
     outline: none;
+}
+/* line numbers */
+#edit-count {
+    grid-area: count;
+    background-color: aliceblue;
+    color: black;
 }
 @media only screen and (max-width: 767px) {
     #edit {
@@ -52,7 +61,7 @@
         grid-row: 2;
         box-shadow: -0em -1em 2em -0.5em darkgray;
         border: none;
-        border-top-right-radius: var(--edit-br);
+        border-top-right-radius: var(--border-radius);
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
 

@@ -1,0 +1,13 @@
+:root {
+    --padding-top: 1rem;
+}
+* {
+    box-sizing: border-box;
+}
+#count {
+    overflow-y: scroll;
+    padding-top: var(--padding-top);
+}
+.count-li {
+    display: block;
+}
