@@ -2,10 +2,11 @@ import { React, useRef } from "react";
 
 import boldIconPath from "../assets/bold-solid.svg";
 
+import Count from "./Count.jsx";
+
 import "./Controls.css";
 import "./Button.css";
 import "./Edit.css";
-import "./Count.css";
 
 function Button({ text, imagePath }) {
     // get reference to current object
@@ -27,32 +28,6 @@ function Button({ text, imagePath }) {
 
 function Controls({ children }) {
     return <section id="controls">{children}</section>;
-}
-/* line numbers */
-function Count({ text }) {
-    const ref = useRef(null);
-
-    const lines = text.split("\n");
-    //console.info({ lines });
-    const length = lines.length;
-    const array = lines.map((_, index) => (
-        <span className="count-li" key={index}>
-            {index + 1}
-        </span>
-    ));
-
-    // same font size as #editor
-    const style = {};
-    if (ref.current !== null) {
-        style.fontSize = parseInt(
-            window.getComputedStyle(ref.current).fontSize
-        );
-    }
-    return (
-        <article style={style} id="count" ref={ref}>
-            {array}
-        </article>
-    );
 }
 
 const Edit = (props) => {

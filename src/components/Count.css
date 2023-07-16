@@ -7,6 +7,7 @@
 #count {
     overflow-y: scroll;
     padding-top: var(--padding-top);
+    font-weight: normal;
 }
 .count-li {
     display: block;
