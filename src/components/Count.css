@@ -1,14 +1,21 @@
 :root {
     --padding-top: 1rem;
+    --padding-right-left: 0.5rem;
+    --bg: aliceblue;
 }
 * {
     box-sizing: border-box;
 }
 #count {
-    overflow-y: scroll;
+    overflow-y: hidden;
     padding-top: var(--padding-top);
     font-weight: normal;
+    background-color: var(--bg);
+
+    padding-left: var(--padding-right-left);
+    padding-right: var(--padding-right-left);
 }
 .count-li {
     display: block;
+    text-align: right;
 }
