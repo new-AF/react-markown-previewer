@@ -1,37 +1,21 @@
 import { React, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { set_scroll_top } from "./Count.slice";
 
-import boldIconPath from "../assets/bold-solid.svg";
+import boldIconPath from "./assets/bold-solid.svg";
 
+import Controls from "./Controls.jsx";
+import Button from "./Controls-Button";
 import Count from "./Count.jsx";
 
-import "./Controls.css";
-import "./Button.css";
 import "./Edit.css";
 
-function Button({ text, imagePath }) {
-    // get reference to current object
-    const ref = useRef(null);
-    const backgroundSize = "1rem";
-
-    const style = {
-        backgroundImage: `url(${imagePath}`,
-        backgroundSize: backgroundSize,
-        /* move the text below the icon, only if there is text */
-        paddingTop: text === undefined ? 0 : `calc(${backgroundSize} + 0.5rem)`,
-    };
-    return (
-        <button className="button" style={style} ref={ref}>
-            {text}
-        </button>
-    );
-}
-
-function Controls({ children }) {
-    return <section id="controls">{children}</section>;
-}
-
 const Edit = (props) => {
+    const dispatch = useDispatch();
     function onFocus(event) {}
+    function onScroll(event) {
+        dispatch(set_scroll_top(event.target.scrollTop));
+    }
     const {
         id,
         headerId,
@@ -59,6 +43,7 @@ const Edit = (props) => {
                 style={textareaStyle}
                 value={textInput}
                 onChange={onchange}
+                onScroll={onScroll}
             />
         </div>
     );

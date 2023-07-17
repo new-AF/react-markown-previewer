@@ -1,9 +1,9 @@
 import { marked } from "marked";
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setInput } from "./slice";
 
-import Edit from "./components/Edit";
+import Edit from "./components/Editor/Edit";
 import Preview from "./components/Preview";
 
 import "./App.css";

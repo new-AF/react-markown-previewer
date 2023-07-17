@@ -49,6 +49,7 @@ marked.setOptions({
     },
 });
 
+/* Edit state */
 const initialState = {
     input: initialText,
     output: marked.parse(initialText),
