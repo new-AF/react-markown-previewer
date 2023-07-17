@@ -4,7 +4,13 @@
 }
 #preview-div {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+        "header"
+        "controls"
+        "preview";
+
     align-content: stretch;
     align-items: stretch;
 
@@ -15,6 +21,7 @@
     box-shadow: 1px 1px 2rem 1px darkgray;
 }
 #preview-header {
+    grid-area: header;
     text-align: center;
 
     margin: 0;
@@ -24,6 +31,7 @@
     font-family: var(--sans-serif);
 }
 #preview {
+    grid-area: preview;
     overflow-x: scroll;
     padding-left: 2rem;
     box-shadow: 1px 0.5rem 2rem 1px darkgray;

@@ -23,6 +23,14 @@ const Edit = (props) => {
     function onInput(event) {
         dispatch(setInput(event.target.value));
     }
+    /* return [string data to download, file name] */
+    function downloadTXT() {
+        const text = state.input;
+        const content = `data:text/plain;charset=utf-8,${encodeURIComponent(
+            text
+        )}`;
+        return [content, "file.txt"];
+    }
     const {
         id,
         headerId,
@@ -42,8 +50,9 @@ const Edit = (props) => {
                 {/* <Button imagePath={boldIconPath} text="Bold" /> */}
                 <Button
                     imagePath={downloadIconPath}
-                    text="Download Text File"
+                    text={"Download Text File"}
                     download={true}
+                    downloadFunction={downloadTXT}
                 />
             </Controls>
             {/* <Count text={state.input}></Count> */}

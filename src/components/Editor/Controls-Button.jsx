@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import "./Controls-Button.css";
 
 /* download = true/false */
-function Button({ text, imagePath, download }) {
+function Button({ text, imagePath, download, downloadFunction }) {
     const textSliceState = useSelector((state) => state["text-slice"]);
 
     // get reference to current object
@@ -23,18 +23,16 @@ function Button({ text, imagePath, download }) {
     function onMouseLeave() {
         setButtonClassName((prev) => `${defaultClassName}`);
     }
-
-    function onClick() {
-        const text = textSliceState.input;
-        const content = `data:text/plain;charset=utf-8,${encodeURIComponent(
-            text
-        )}`;
+    function onClickDownload() {
+        const [content, fileName] = downloadFunction();
+        if (content === undefined || fileName === undefined) {
+            return;
+        }
         const downloadElement = document.getElementById("controls-download");
         downloadElement.href = content;
-        downloadElement.download = "file.txt";
+        downloadElement.download = fileName;
         downloadElement.click();
     }
-
     return (
         <div
             className="button"
@@ -42,7 +40,7 @@ function Button({ text, imagePath, download }) {
             ref={ref}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            onClick={download === true ? onClick : undefined}
+            onClick={download === true ? onClickDownload : undefined}
         >
             <img className={buttonClassName} src={imagePath} />
             <span className="button-text">{text}</span>
