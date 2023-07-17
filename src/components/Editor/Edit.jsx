@@ -4,6 +4,7 @@ import { set_scroll_top } from "./Count.slice";
 import { setInput } from "../../slice";
 
 import boldIconPath from "./assets/bold-solid.svg";
+import downloadIconPath from "./assets/circle-down-regular.svg";
 
 import Controls from "./Controls.jsx";
 import Button from "./Controls-Button.jsx";
@@ -38,9 +39,14 @@ const Edit = (props) => {
                 Editor
             </h2>
             <Controls>
-                <Button imagePath={boldIconPath} text="Bold" />
+                {/* <Button imagePath={boldIconPath} text="Bold" /> */}
+                <Button
+                    imagePath={downloadIconPath}
+                    text="Download Text File"
+                    download={true}
+                />
             </Controls>
-            <Count text={state.input}></Count>
+            {/* <Count text={state.input}></Count> */}
             <textarea
                 id={textareaId}
                 style={textareaStyle}

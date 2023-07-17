@@ -1,12 +1,21 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import "./Count.css";
 
-function Line({ key, text }) {
+function Line({ countText, textLength, fontSize, width }) {
+    /* if lineLength > width, simulate wrap around by padding top */
+    const textWidth = textLength * fontSize;
+    const linesCount = Math.ceil(textWidth / width);
+    const paddingBottom = linesCount > 1 ? linesCount * fontSize : 0;
+
+    console.info({ countText, textLength, width, textWidth, linesCount });
+
+    const style = { fontSize: fontSize, paddingBottom: paddingBottom };
+
     return (
-        <span className="count-li" key={key}>
-            {text}
+        <span className="count-li" style={style}>
+            {countText}
         </span>
     );
 }
@@ -14,33 +23,22 @@ function Line({ key, text }) {
 /* line numbers */
 function Count({ text }) {
     const state = useSelector((state) => state["count-reducer"]);
-    const ref = useRef();
-    const lines = text.split("\n");
-    //console.info({ lines });
-    const length = lines.length;
-    const array = lines.map((_, index) => (
-        <Line key={index} text={index + 1} />
-    ));
-
-    let style = {};
-
-    // set count  same font size of #editor
-    useEffect(() => {
-        const size = parseInt(
-            window.getComputedStyle(document.getElementById("editor")).fontSize
-        );
-        // console.info({ size });
-        ref.current.style.fontSize = size + "px";
-    });
-
-    // update scroll top
-    useEffect(() => {
-        ref.current.scrollTop = state.scrollTop;
-    }, [state.scrollTop]);
-
+    const ref = useRef(undefined);
+    const style = {};
+    const fontSize = 13.3333;
+    const elements = text
+        .split("\n")
+        .map((text, index) => (
+            <Line
+                countText={index + 1}
+                textLength={text.length}
+                fontSize={fontSize}
+                width={181}
+            />
+        ));
     return (
         <article style={style} id="count" ref={ref}>
-            {array}
+            {elements}
         </article>
     );
 }

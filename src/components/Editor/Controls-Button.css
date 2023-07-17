@@ -4,7 +4,37 @@
 
     background-repeat: no-repeat;
     background-position: center top;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0 0.5rem;
+    align-items: center;
+    justify-items: center;
+
+    padding: 0.5rem 0.5rem;
+
+    background-color: rgb(240, 248, 255, 0.5);
+
+    transition: all var(--transition);
+}
+.global-button-hover {
+    filter: invert(58%) sepia(30%) saturate(7126%) hue-rotate(160deg)
+        brightness(93%) contrast(101%);
 }
 .button:hover {
-    backdrop-filter: brightness(0.8);
+    --color: #00008080;
+    border-left: medium solid var(--color);
+    border-right: medium solid var(--color);
+    color: var(--color);
+}
+.button-image {
+    object-fit: contain;
+    object-position: center;
+
+    width: 1rem;
+}
+.button-text {
+    font-family: var(--sans-serif);
+    font-size: 0.85rem;
+    font-weight: bolder;
 }

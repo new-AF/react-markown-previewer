@@ -4,5 +4,7 @@
 #controls {
     grid-area: controls;
     border-bottom: thin solid lightskyblue;
-    padding-left: var(--padding-left);
+}
+#controls-download {
+    display: none;
 }
