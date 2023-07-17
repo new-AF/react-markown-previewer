@@ -1,15 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import "./Preview.css";
 
 const Preview = (props) => {
+    const state = useSelector((state) => state["text-slice"]);
     const {
         id,
         headerId,
         contentId,
 
         style,
-        output,
     } = props;
 
     const boxStyle = {
@@ -20,7 +21,7 @@ const Preview = (props) => {
     const contentStyle = {};
     //innerHTML substitute
     const contentStyle2 = {
-        __html: output,
+        __html: state.output,
     };
     const jsx = (
         <div id={id} style={boxStyle}>
