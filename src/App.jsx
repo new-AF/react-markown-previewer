@@ -20,7 +20,19 @@ function App() {
                 headerId="preview-header"
                 contentId="preview"
             />
-            <div id="footer">by Abdullah Fatota</div>
+            <div id="footer">
+                <small>
+                    <p>
+                        by <em>Abdullah Fatota</em>
+                    </p>
+                    <a
+                        id="footer-github"
+                        href="https://github.com/new-AF/react-markown-previewer"
+                    >
+                        Project Homepage
+                    </a>
+                </small>
+            </div>
         </div>
     );
 }
