@@ -42,19 +42,21 @@ const Edit = (props) => {
     } = props;
 
     return (
-        <div id={id} style={style}>
-            <h2 id={headerId} style={headerStyle}>
-                Editor
-            </h2>
-            <Controls>
-                {/* <Button imagePath={boldIconPath} text="Bold" /> */}
-                <Button
-                    imagePath={downloadIconPath}
-                    text={"Download Text File"}
-                    download={true}
-                    downloadFunction={downloadTXT}
-                />
-            </Controls>
+        <section id={id} style={style}>
+            <article id="edit-top">
+                <h2 id={headerId} style={headerStyle}>
+                    Editor
+                </h2>
+                <Controls>
+                    {/* <Button imagePath={boldIconPath} text="Bold" /> */}
+                    <Button
+                        imagePath={downloadIconPath}
+                        text={"Download Text File"}
+                        download={true}
+                        downloadFunction={downloadTXT}
+                    />
+                </Controls>
+            </article>
             {/* <Count text={state.input}></Count> */}
             <textarea
                 id={textareaId}
@@ -63,7 +65,7 @@ const Edit = (props) => {
                 onChange={onInput}
                 onScroll={onScroll}
             />
-        </div>
+        </section>
     );
 };
 export default Edit;

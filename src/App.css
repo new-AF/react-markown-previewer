@@ -42,7 +42,7 @@ body {
 @media only screen and (max-width: 767px) {
     #app {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 50vh 1fr 5rem;
+        grid-template-rows: auto 60vh 1fr 5rem;
         gap: 2rem 0;
         padding: 0 4rem;
     }

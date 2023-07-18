@@ -13,8 +13,6 @@
 
     padding: 0.5rem 0.5rem;
 
-    background-color: rgb(240, 248, 255, 0.5);
-
     transition: all var(--transition);
 }
 .global-button-hover {
@@ -23,8 +21,8 @@
 }
 .button:hover {
     --color: #00008080;
-    border-left: medium solid var(--color);
-    border-right: medium solid var(--color);
+    /* border-left: medium solid var(--color);
+    border-right: medium solid var(--color); */
     color: var(--color);
 }
 .button-image {
@@ -32,6 +30,7 @@
     object-position: center;
 
     width: 1rem;
+    transition: all var(--transition);
 }
 .button-text {
     font-family: var(--sans-serif);

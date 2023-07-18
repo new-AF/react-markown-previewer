@@ -18,7 +18,9 @@
 
     border-top-right-radius: var(--preview-div-br);
 
-    box-shadow: 1px 1px 2rem 1px darkgray;
+    box-shadow: 0 0.25rem 1rem 0 darkgray;
+    /* hide left shadow */
+    clip-path: inset(-2rem -2rem -2rem 0);
 }
 #preview-header {
     grid-area: header;
@@ -35,7 +37,7 @@
     grid-area: preview;
     overflow-x: scroll;
     padding: 0 2rem;
-    box-shadow: 1px 0.5rem 2rem 1px darkgray;
+    box-shadow: 0 0.25rem 1rem 0 darkgray;
 }
 /* fix images x overflow */
 #preview img {
@@ -47,10 +49,12 @@
     border: none;
     border-top: medium solid;
 }
+/* if < tablet width (768) do this */
 @media only screen and (max-width: 767px) {
     #preview-div {
         box-shadow: -0em 1em 2em -0.1em darkgray;
         border: none;
         border-top-left-radius: var(--preview-div-br);
+        clip-path: revert;
     }
 }
