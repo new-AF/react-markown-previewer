@@ -17,7 +17,9 @@ const initialText = `# About Me
 
 ## Code
 
-This Inline code example defines a function \`add\` as \`const add = (a,b)=> a+b;\`
+### Inline Code
+
+This Inline code defines a function \`add\` on a single line as \`const add = (a,b)=> a+b;\`
 
 ### Code Block
 

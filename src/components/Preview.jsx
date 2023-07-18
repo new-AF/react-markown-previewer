@@ -43,9 +43,10 @@ const Preview = (props) => {
         newWindow.print();
         return [undefined, undefined];
     }
-    /* bugfix prism.js code highlighting */
     useEffect(() => {
-        /* get all first <code> after <pre> */
+        /* bugfix prism.js code block highlighting */
+
+        /* get all <pre> s */
         const allPres = previewRef.current.querySelectorAll("pre");
         // console.log(allPres);
         for (const pre of allPres) {
@@ -56,6 +57,12 @@ const Preview = (props) => {
             /* add class to pre */
             // console.info({ code, name });
             pre.classList.add(name);
+        }
+
+        /* bugfix inline code highlighting */
+        const allCode = previewRef.current.querySelectorAll("code");
+        for (const code of allCode) {
+            code.classList.add("language-");
         }
     });
 
