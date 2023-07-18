@@ -9,7 +9,7 @@ function Controls({ id, children }) {
     }
     return (
         <section id={id} className="controls">
-            <a className="controls-download"></a>
+            <a id="controls-download"></a>
             {children}
         </section>
     );

@@ -16,6 +16,6 @@
 .controls > * {
     flex: 1;
 }
-.controls-download {
+#controls-download {
     display: none;
 }

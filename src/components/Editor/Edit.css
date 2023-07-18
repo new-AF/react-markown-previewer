@@ -72,7 +72,7 @@
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
 
-        border-bottom: medium inset rgba(0, 0, 128, 0.25);
+        /* border-bottom: medium inset rgba(0, 0, 128, 0.25); */
     }
     #edit-top {
         border-top-right-radius: var(--border-radius);
