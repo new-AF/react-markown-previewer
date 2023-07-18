@@ -15,20 +15,18 @@ const initialText = `# About Me
 
 2. ![live app preview image](https://new-af.github.io/assets/3%20html5%20css3%202%20product%20page.png)
 
-## Some of my Code snippets
+## Code
 
-### Inline code
-
-\`const add= (a,b)=> a+b;\`
+This Inline code example defines a function \`add\` as \`const add = (a,b)=> a+b;\`
 
 ### Code Block
 
-\`\`\`js
+\`\`\`javascript
 const add = (a, b) => {
 
-const result = a + b;
+    const result = a + b;
 
-return result;
+    return result;
 }
 \`\`\`
 
@@ -41,11 +39,13 @@ return result;
 //set highlighter.
 marked.setOptions({ gfm: true, breaks: true });
 marked.setOptions({
-    highlight: (text, lang0) => {
-        const lang = Prism.languages.hasOwnProperty(lang0)
-            ? lang0
+    highlight: (text, userLang) => {
+        const lang = Prism.languages.hasOwnProperty(userLang)
+            ? userLang
             : "plaintext";
-        return Prism.highlight(text, Prism.languages[lang], lang);
+        const result = Prism.highlight(text, Prism.languages[lang], lang);
+        // console.info({ result, userLang });
+        return result;
     },
 });
 

@@ -1,11 +1,7 @@
 :root {
     --sans-serif: Tahoma, Verdana, Arial, sans-serif;
-    --mono: "Lucida Console", Consolas, monospace;
+    --mono: "Consolas", "Lucida Console", monospace, "Tahoma", sans-serif;
     --transition: 125ms ease-in-out;
-}
-* {
-    border: 0px solid black;
-    font-family: "Consolas", "Lucida Console", monospace, "Tahoma", sans-serif;
 }
 
 body {

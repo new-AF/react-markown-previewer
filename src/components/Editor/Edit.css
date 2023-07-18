@@ -46,6 +46,7 @@
     margin: 0 var(--margin-right);
     margin-bottom: var(--margin-bottom);
     border-bottom-left-radius: 2rem;
+    border: none;
 }
 #editor:focus-visible {
     outline: none;

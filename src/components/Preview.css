@@ -31,32 +31,11 @@
     font-family: var(--sans-serif);
 }
 #preview {
+    font-family: var(--sans-serif);
     grid-area: preview;
     overflow-x: scroll;
     padding-left: 2rem;
     box-shadow: 1px 0.5rem 2rem 1px darkgray;
-}
-#preview * {
-    font-family: var(--sans-serif);
-}
-
-/*
-styles color values taken from
-https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript
-
-!important keyword needed to override the styling
-Prism.js puts on elements it produces.
-*/
-#preview code {
-    display: inline-block;
-    background-color: #2d2d2d !important;
-    color: #999 !important;
-    padding: 0.5em !important;
-    border-radius: 0.5em !important;
-    font-family: var(--mono);
-}
-#preview pre > code {
-    display: block;
 }
 
 /* markdown `---` translated to <hr/> */

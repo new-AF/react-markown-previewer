@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import downloadIconPath from "./Editor/assets/circle-down-regular.svg";
@@ -43,7 +43,23 @@ const Preview = (props) => {
         newWindow.print();
         return [undefined, undefined];
     }
-    const jsx = (
+    /* bugfix prism.js code highlighting */
+    useEffect(() => {
+        /* get all first <code> after <pre> */
+        const allPres = previewRef.current.querySelectorAll("pre");
+        // console.log(allPres);
+        for (const pre of allPres) {
+            const code = pre.querySelector("code");
+            const name = Array.from(code.classList).find((s) =>
+                s.startsWith("language-")
+            );
+            /* add class to pre */
+            // console.info({ code, name });
+            pre.classList.add(name);
+        }
+    });
+
+    return (
         <div id={id} style={boxStyle}>
             <h2 id={headerId}>Viewer</h2>
             <Controls>
@@ -60,16 +76,14 @@ const Preview = (props) => {
                     downloadFunction={downloadPDF}
                 />
             </Controls>
-            <div
+            <section
                 id={contentId}
                 style={contentStyle}
                 dangerouslySetInnerHTML={contentStyle2}
                 ref={previewRef}
-            ></div>
+            ></section>
         </div>
     );
-
-    return jsx;
 };
 
 export default Preview;
