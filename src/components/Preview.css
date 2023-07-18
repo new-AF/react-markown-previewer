@@ -58,3 +58,38 @@
         clip-path: revert;
     }
 }
+/* print (to pdf file) */
+@media print {
+    /* hide fcc test hamburger menu */
+    #fcc_test_suite_wrapper {
+        display: none;
+    }
+    #header {
+        display: none;
+    }
+    #edit {
+        display: none;
+    }
+    #footer {
+        display: none;
+    }
+    /* print color */
+    #app {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        grid-template-columns: 1fr;
+    }
+    #preview-div {
+        grid-column: 1/ -1;
+        box-shadow: unset;
+    }
+    #preview-header {
+        display: none;
+    }
+    #preview-controls {
+        display: none;
+    }
+    #preview {
+        box-shadow: unset;
+    }
+}

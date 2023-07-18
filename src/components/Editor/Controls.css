@@ -1,7 +1,7 @@
 :root {
     --padding-left: 2rem;
 }
-#controls {
+.controls {
     grid-area: controls;
     /* background-image: linear-gradient(
         180deg,
@@ -13,9 +13,9 @@
     display: flex;
     flex-wrap: wrap;
 }
-#controls > * {
+.controls > * {
     flex: 1;
 }
-#controls-download {
+.controls-download {
     display: none;
 }

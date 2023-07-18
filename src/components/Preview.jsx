@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import downloadIconPath from "./Editor/assets/circle-down-regular.svg";
+import printIconPath from "./Editor/assets/print-solid.svg";
 import Controls from "./Editor/Controls";
 import Button from "./Editor/Controls-Button";
 
@@ -37,10 +38,8 @@ const Preview = (props) => {
         return [content, "file.html"];
     }
     function downloadPDF() {
-        const newWindow = window.open("about:blank", "", "_blank");
-        newWindow.document.write(previewRef.current.innerHTML);
-        newWindow.document.close();
-        newWindow.print();
+        /* @media print; will take care of rest */
+        window.print();
         return [undefined, undefined];
     }
     useEffect(() => {
@@ -69,7 +68,7 @@ const Preview = (props) => {
     return (
         <div id={id} style={boxStyle}>
             <h2 id={headerId}>Viewer</h2>
-            <Controls>
+            <Controls id={"preview-controls"}>
                 <Button
                     text={"Download HTML"}
                     imagePath={downloadIconPath}
@@ -77,8 +76,8 @@ const Preview = (props) => {
                     downloadFunction={downloadHTML}
                 />
                 <Button
-                    text={"Print PDF"}
-                    imagePath={downloadIconPath}
+                    text={"Print to PDF File"}
+                    imagePath={printIconPath}
                     download={true}
                     downloadFunction={downloadPDF}
                 />
