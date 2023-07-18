@@ -10,7 +10,7 @@ const initialText = `# About Me
 1. **Work Break timer** [Live App](https://new-af.github.io/) \[[GitHub Repository](https://github.com/new-AF/react-redux-work-break-timer)\]
 2. **Product Page** [Live Page](https://new-af.github.io/)
 
-## Some preview images of live apps
+## Images of live apps
 1. ![live app preview image](https://new-af.github.io/assets/1%20react%20redux%201%20work%20break%20timer.png)
 
 2. ![live app preview image](https://new-af.github.io/assets/3%20html5%20css3%202%20product%20page.png)

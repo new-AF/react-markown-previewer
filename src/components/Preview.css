@@ -34,10 +34,14 @@
     font-family: var(--sans-serif);
     grid-area: preview;
     overflow-x: scroll;
-    padding-left: 2rem;
+    padding: 0 2rem;
     box-shadow: 1px 0.5rem 2rem 1px darkgray;
 }
-
+/* fix images x overflow */
+#preview img {
+    width: 100%;
+    object-fit: cover;
+}
 /* markdown `---` translated to <hr/> */
 #preview hr {
     border: none;
@@ -48,9 +52,5 @@
         box-shadow: -0em 1em 2em -0.1em darkgray;
         border: none;
         border-top-left-radius: var(--preview-div-br);
-    }
-    #preview {
-        grid-column: 1;
-        grid-row: 3;
     }
 }
