@@ -29,7 +29,7 @@ const Edit = (props) => {
         const content = `data:text/plain;charset=utf-8,${encodeURIComponent(
             text
         )}`;
-        return [content, "file.txt"];
+        return [content, "file.md"];
     }
     const {
         id,
@@ -51,7 +51,7 @@ const Edit = (props) => {
                     {/* <Button imagePath={boldIconPath} text="Bold" /> */}
                     <Button
                         imagePath={downloadIconPath}
-                        text={"Download Text File"}
+                        text={"Download Markdown (.md) File"}
                         download={true}
                         downloadFunction={downloadTXT}
                     />

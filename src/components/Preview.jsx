@@ -69,12 +69,12 @@ const Preview = (props) => {
         <div id={id} style={boxStyle}>
             <h2 id={headerId}>Viewer</h2>
             <Controls id={"preview-controls"}>
-                <Button
+                {/* <Button
                     text={"Download HTML"}
                     imagePath={downloadIconPath}
                     download={true}
                     downloadFunction={downloadHTML}
-                />
+                /> */}
                 <Button
                     text={"Print to PDF File"}
                     imagePath={printIconPath}
