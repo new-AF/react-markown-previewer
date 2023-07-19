@@ -1,9 +1,24 @@
-# Markdown Previewer
+# Markdown Viewer
 
-Render Markdown text as you type, for example, #Header 1 , is converted to styled and formatted text as **Header 1**.
+Render plaintext Markdown input to styled and formatted output as you type.
 
-Supported features include Headers, Code Blocks, Links, Ordered and Unordered lists and Embedded Images.
+## Supported features
+
+-   Save rendered Output as PDF file through Browser's Print Dialogue.
+-   Download Input as plaintext `.md` file.
+
+### Supported Markdown features include
+
+-   Headers
+-   Unhighlighted Inline Code Snippets
+-   Highlighted Code Blocks
+-   Links, Ordered and Unordered lists
+-   Linked Images
+
+## Run the App
 
 [Run the App!](https://new-af.github.io/react-markown-previewer/)
+
+## App Preview
 
 <img src="./public/preview.png" alt="preview image of live app"/>
