@@ -13,7 +13,7 @@
 
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000000" alt="React Badge"/>
 
-  <img src="https://img.shields.io/badge/Redux%20Toolkit-764ABC?logo=redux&logoColor=fff&style=for-the-badge" alt="Redux Toolkit Badge">
+  <img src="https://img.shields.io/badge/Redux%20Toolkit-764ABC?logo=redux&logoColor=fff&style=for-the-badge" alt="Redux Toolkit Badge"/>
 
 </div>
 
