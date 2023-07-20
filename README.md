@@ -1,4 +1,6 @@
-# Markdown Viewer
+<img align="center" src="./public/preview.png" alt="preview image of live app"/>
+
+<h1 align="center"> Markdown Viewer </h1>
 
 Render plaintext Markdown input to styled and formatted output as you type.
 
