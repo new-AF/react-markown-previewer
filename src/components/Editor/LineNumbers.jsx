@@ -6,7 +6,7 @@ import "./LineNumbers.css";
 import Line from "./LineNumbers-Line.jsx";
 
 /* line numbers */
-function OriginalLineNumbers({ text, fontSize, width, passedRef }) {
+function OriginalLineNumbers({ text, fontSize, width, sentRef }) {
     const state = useSelector((state) => state["count-reducer"]);
 
     const style = {};
@@ -17,19 +17,20 @@ function OriginalLineNumbers({ text, fontSize, width, passedRef }) {
                 key={index}
                 countText={index + 1}
                 textLength={text.length}
-                fontSize={fontSize}
                 width={width}
+                fontSize={fontSize}
+                text={text}
             />
         ));
     return (
-        <article style={style} id="count" ref={passedRef}>
+        <article style={style} id="count" ref={sentRef}>
             {elements}
         </article>
     );
 }
 
 function makeComponent(props, ref) {
-    return <OriginalLineNumbers {...props} passedRef={ref} />;
+    return <OriginalLineNumbers {...props} sentRef={ref} />;
 }
 const LineNumbers = forwardRef(makeComponent);
 

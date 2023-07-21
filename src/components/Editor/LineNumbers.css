@@ -15,10 +15,8 @@
 
     padding-left: var(--padding-right-left);
     padding-right: var(--padding-right-left);
-}
-.count-li {
-    display: block;
-    text-align: right;
+
+    font-size: var(--edit-font-size);
 }
 @media only screen and (max-width: 767px) {
     #count {

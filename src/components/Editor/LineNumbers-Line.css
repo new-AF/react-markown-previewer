@@ -1,0 +1,6 @@
+.line {
+    display: block;
+    text-align: right;
+
+    font-family: var(--mono);
+}

@@ -11,12 +11,41 @@ import Button from "./Controls-Button.jsx";
 import LineNumbers from "./LineNumbers.jsx";
 
 import "./Edit.css";
+import { useEffect } from "react";
 
 const Edit = (props) => {
+    /* redux slice */
     const dispatch = useDispatch();
     const state = useSelector((state) => state["text-slice"]);
 
+    /* useState */
+    const [[fontSize, setFontSize], [width, setWidth]] = [
+        useState(13.333),
+        useState(181),
+    ];
+
+    /* refs */
     const refLineNumbers = useRef(null);
+    const refTextArea = useRef(null);
+
+    useEffect(() => {
+        const widthStr = window.getComputedStyle(refTextArea.current).width;
+
+        const fontSizeStr = window.getComputedStyle(
+            refTextArea.current
+        ).fontSize;
+
+        const paddingStr = window.getComputedStyle(refTextArea.current).padding;
+
+        const width = parseFloat(widthStr);
+        const fontSize = parseFloat(fontSizeStr);
+        const padding = parseFloat(paddingStr);
+
+        setWidth(width - 2 * padding);
+        setFontSize(fontSize);
+    }, []);
+
+    /* event callbacks */
 
     function onFocus(event) {}
     function onScroll(event) {
@@ -33,6 +62,38 @@ const Edit = (props) => {
         )}`;
         return [content, "file.md"];
     }
+    /* markdown text manipulation functions */
+    function getText() {
+        return state.input;
+    }
+    function getTextSlice(start, end) {
+        return state.input.slice(start, end);
+    }
+    function getSelectionIndicies() {
+        const [start, end] = [
+            refTextArea.current.selectionStart,
+            refTextArea.current.selectionEnd,
+        ];
+        return [start, end];
+    }
+    function getSelection() {
+        const [start, end] = getSelectionIndicies();
+        const text = getTextSlice(start, end);
+        return text;
+    }
+    function replaceSelection(text) {
+        const [start, end] = getSelectionIndicies();
+        const oldText = getText();
+        const partA = oldText.slice(0, start);
+        const partB = oldText.slice(end);
+        const newer = `${partA}${text}${partB}`;
+        dispatch(setInput(newer));
+    }
+    function doBolden(event) {
+        const text = getSelection();
+        const newer = `**${text}**`;
+        replaceSelection(newer);
+    }
     const {
         id,
         headerId,
@@ -43,11 +104,6 @@ const Edit = (props) => {
         textareaStyle,
     } = props;
 
-    const [[fontSize, setFontSize], [width, setWidth]] = [
-        useState(13.333),
-        useState(181),
-    ];
-
     return (
         <section id={id} style={style}>
             <article id="edit-top">
@@ -55,12 +111,19 @@ const Edit = (props) => {
                     Editor
                 </h2>
                 <Controls>
-                    {/* <Button imagePath={boldIconPath} text="Bold" /> */}
                     <Button
                         imagePath={downloadIconPath}
                         text={"Download Markdown (.md) File"}
                         download={true}
                         downloadFunction={downloadTXT}
+                    />
+                </Controls>
+                <Controls>
+                    <Button
+                        imagePath={boldIconPath}
+                        text="Bold"
+                        hideText={true}
+                        onClick={doBolden}
                     />
                 </Controls>
             </article>
@@ -76,6 +139,7 @@ const Edit = (props) => {
                 value={state.input}
                 onChange={onInput}
                 onScroll={onScroll}
+                ref={refTextArea}
             />
         </section>
     );
