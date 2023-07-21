@@ -8,7 +8,7 @@ import downloadIconPath from "./assets/circle-down-regular.svg";
 
 import Controls from "./Controls.jsx";
 import Button from "./Controls-Button.jsx";
-import Count from "./Count.jsx";
+import LineNumbers from "./LineNumbers.jsx";
 
 import "./Edit.css";
 
@@ -57,7 +57,7 @@ const Edit = (props) => {
                     />
                 </Controls>
             </article>
-            {/* <Count text={state.input}></Count> */}
+            <LineNumbers text={state.input}></LineNumbers>
             <textarea
                 id={textareaId}
                 style={textareaStyle}
