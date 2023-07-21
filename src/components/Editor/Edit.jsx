@@ -5,6 +5,7 @@ import { setInput } from "../../slice";
 
 import boldIconPath from "./assets/bold-solid.svg";
 import downloadIconPath from "./assets/circle-down-regular.svg";
+import italicIconPath from "./assets/italic-solid.svg";
 
 import Controls from "./Controls.jsx";
 import Button from "./Controls-Button.jsx";
@@ -94,6 +95,11 @@ const Edit = (props) => {
         const newer = `**${text}**`;
         replaceSelection(newer);
     }
+    function doItalic(event) {
+        const text = getSelection();
+        const newer = `_${text}_`;
+        replaceSelection(newer);
+    }
     const {
         id,
         headerId,
@@ -124,6 +130,12 @@ const Edit = (props) => {
                         text="Bold"
                         hideText={true}
                         onClick={doBolden}
+                    />
+                    <Button
+                        imagePath={italicIconPath}
+                        text="Italic"
+                        hideText={true}
+                        onClick={doItalic}
                     />
                 </Controls>
             </article>
