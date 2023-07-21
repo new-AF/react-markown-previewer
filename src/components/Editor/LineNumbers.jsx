@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, forwardRef } from "react";
 import { useSelector } from "react-redux";
 
 import "./LineNumbers.css";
@@ -6,11 +6,10 @@ import "./LineNumbers.css";
 import Line from "./LineNumbers-Line.jsx";
 
 /* line numbers */
-function LineNumbers({ text }) {
+function OriginalLineNumbers({ text, fontSize, width, passedRef }) {
     const state = useSelector((state) => state["count-reducer"]);
-    const ref = useRef(undefined);
+
     const style = {};
-    const fontSize = 13.3333;
     const elements = text
         .split("\n")
         .map((text, index) => (
@@ -19,14 +18,19 @@ function LineNumbers({ text }) {
                 countText={index + 1}
                 textLength={text.length}
                 fontSize={fontSize}
-                width={181}
+                width={width}
             />
         ));
     return (
-        <article style={style} id="count" ref={ref}>
+        <article style={style} id="count" ref={passedRef}>
             {elements}
         </article>
     );
 }
+
+function makeComponent(props, ref) {
+    return <OriginalLineNumbers {...props} passedRef={ref} />;
+}
+const LineNumbers = forwardRef(makeComponent);
 
 export default LineNumbers;

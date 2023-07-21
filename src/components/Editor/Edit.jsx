@@ -1,4 +1,4 @@
-import { React, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { set_scroll_top } from "./Count.slice";
 import { setInput } from "../../slice";
@@ -16,9 +16,11 @@ const Edit = (props) => {
     const dispatch = useDispatch();
     const state = useSelector((state) => state["text-slice"]);
 
+    const refLineNumbers = useRef(null);
+
     function onFocus(event) {}
     function onScroll(event) {
-        dispatch(set_scroll_top(event.target.scrollTop));
+        refLineNumbers.current.scrollTop = event.target.scrollTop;
     }
     function onInput(event) {
         dispatch(setInput(event.target.value));
@@ -41,6 +43,11 @@ const Edit = (props) => {
         textareaStyle,
     } = props;
 
+    const [[fontSize, setFontSize], [width, setWidth]] = [
+        useState(13.333),
+        useState(181),
+    ];
+
     return (
         <section id={id} style={style}>
             <article id="edit-top">
@@ -57,7 +64,12 @@ const Edit = (props) => {
                     />
                 </Controls>
             </article>
-            <LineNumbers text={state.input}></LineNumbers>
+            <LineNumbers
+                text={state.input}
+                width={width}
+                fontSize={fontSize}
+                ref={refLineNumbers}
+            />
             <textarea
                 id={textareaId}
                 style={textareaStyle}
