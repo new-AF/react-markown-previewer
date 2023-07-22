@@ -6,7 +6,14 @@ import "./LineNumbers.css";
 import Line from "./LineNumbers-Line.jsx";
 
 /* line numbers */
-function OriginalLineNumbers({ text, fontSize, width, sentRef }) {
+function OriginalLineNumbers({
+    text,
+    fontSize,
+    width,
+    charWidth,
+    charHeight,
+    sentRef,
+}) {
     const state = useSelector((state) => state["count-reducer"]);
 
     const style = {};
@@ -20,6 +27,8 @@ function OriginalLineNumbers({ text, fontSize, width, sentRef }) {
                 width={width}
                 fontSize={fontSize}
                 text={text}
+                charWidth={charWidth}
+                charHeight={charHeight}
             />
         ));
     return (

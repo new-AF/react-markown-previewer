@@ -1,20 +1,31 @@
 import "./LineNumbers-Line.css";
 
-function Line({ countText, textLength, fontSize, width, text }) {
-    /* if lineLength > width, simulate wrap around by padding top */
-    const textWidth = textLength * fontSize;
-    const linesCount = Math.ceil(textWidth / width);
-    const paddingBottom = linesCount > 1 ? linesCount * fontSize : 0;
-
-    /*     console.info({
+function Line({
+    countText,
+    textLength,
+    fontSize,
+    charWidth,
+    charHeight,
+    textareaWidth,
+    width,
+    text,
+}) {
+    /* when lineLength > width, simulate wrap around by padding top */
+    const lineWidth = textLength * charWidth;
+    const linesCount = Math.ceil(lineWidth / width);
+    const paddingBottom = linesCount > 1 ? linesCount * charHeight : 0;
+    // console.info({ charWidth, charHeight });
+    console.info({
         countText,
+        charWidth,
+        charHeight,
         textLength,
         fontSize,
         width,
-        textWidth,
+        lineWidth,
         linesCount,
         text,
-    }); */
+    });
 
     const style = { fontSize: fontSize, paddingBottom: paddingBottom };
 

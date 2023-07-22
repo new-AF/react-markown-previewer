@@ -53,7 +53,11 @@ function Button({
             onMouseLeave={onMouseLeave}
             onClick={download === true ? onClickDownload : onClick}
         >
-            <img className={buttonClassName} src={imagePath} />
+            {/* support multiple icons */}
+            <div className="button-icons">
+                <img className={buttonClassName} src={imagePath} />
+            </div>
+
             {elementButton}
         </div>
     );

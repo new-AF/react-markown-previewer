@@ -24,10 +24,16 @@ const Edit = (props) => {
         useState(13.333),
         useState(181),
     ];
+    const [charWidth, setCharWidth] = useState(1);
+    const [charHeight, setCharHeight] = useState(1);
 
     /* refs */
     const refLineNumbers = useRef(null);
     const refTextArea = useRef(null);
+    const refCharSize = useRef(null);
+
+    /* fint size, text area width and padding */
+    /* char width and height */
 
     useEffect(() => {
         const widthStr = window.getComputedStyle(refTextArea.current).width;
@@ -44,6 +50,16 @@ const Edit = (props) => {
 
         setWidth(width - 2 * padding);
         setFontSize(fontSize);
+
+        const charWidth = parseFloat(
+            window.getComputedStyle(refCharSize.current).width
+        );
+        const charHeight = parseFloat(
+            window.getComputedStyle(refCharSize.current).height
+        );
+        // console.info({ charWidth, charHeight });
+        setCharWidth(charWidth);
+        setCharHeight(charHeight);
     }, []);
 
     /* event callbacks */
@@ -144,7 +160,13 @@ const Edit = (props) => {
                 width={width}
                 fontSize={fontSize}
                 ref={refLineNumbers}
+                charWidth={charWidth}
+                charHeight={charHeight}
             />
+            {/* invisible element */}
+            <span id="count-char" ref={refCharSize}>
+                a
+            </span>
             <textarea
                 id={textareaId}
                 style={textareaStyle}

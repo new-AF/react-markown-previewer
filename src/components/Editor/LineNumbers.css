@@ -18,6 +18,12 @@
 
     font-size: var(--edit-font-size);
 }
+/* invisible element to measure character width and height */
+#count-char {
+    display: block;
+    position: absolute;
+    visibility: hidden;
+}
 @media only screen and (max-width: 767px) {
     #count {
         box-shadow: 0 0.25rem 1rem 0 darkgray;
