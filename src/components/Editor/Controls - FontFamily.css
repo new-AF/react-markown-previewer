@@ -1,0 +1,16 @@
+#edit-top-font-family {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "labelFamily"
+        "select";
+}
+#edit-top-font-family-labelFamily {
+    --padding-bottom: 1rem;
+    grid-area: labelFamily;
+    text-align: center;
+}
+#edit-top-font-family-select {
+    grid-area: select;
+    cursor: pointer;
+}

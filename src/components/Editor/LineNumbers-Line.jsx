@@ -13,9 +13,10 @@ function Line({
     /* when lineLength > width, simulate wrap around by padding top */
     const lineWidth = textLength * charWidth;
     const linesCount = Math.ceil(lineWidth / width);
-    const paddingBottom = linesCount > 1 ? linesCount * charHeight : 0;
+    let paddingBottom = linesCount > 1 ? linesCount * charHeight : 0;
+    paddingBottom = 0;
     // console.info({ charWidth, charHeight });
-    console.info({
+    /*     console.info({
         countText,
         charWidth,
         charHeight,
@@ -25,7 +26,7 @@ function Line({
         lineWidth,
         linesCount,
         text,
-    });
+    }); */
 
     const style = { fontSize: fontSize, paddingBottom: paddingBottom };
 

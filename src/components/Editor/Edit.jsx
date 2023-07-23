@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { set_scroll_top } from "./Count.slice";
 import { setInput } from "../../slice";
 
 import boldIconPath from "./assets/bold-solid.svg";
@@ -8,8 +7,12 @@ import downloadIconPath from "./assets/circle-down-regular.svg";
 import italicIconPath from "./assets/italic-solid.svg";
 
 import Controls from "./Controls.jsx";
-import Button from "./Controls-Button.jsx";
 import LineNumbers from "./LineNumbers.jsx";
+
+import "./Controls ++ Font.css";
+import Button from "./Controls-Button.jsx";
+import FontFamily from "./Controls - FontFamily.jsx";
+import FontSize from "./Controls - FontSize.jsx";
 
 import "./Edit.css";
 import { useEffect } from "react";
@@ -21,7 +24,7 @@ const Edit = (props) => {
 
     /* useState */
     const [[fontSize, setFontSize], [width, setWidth]] = [
-        useState(13.333),
+        useState(undefined),
         useState(181),
     ];
     const [charWidth, setCharWidth] = useState(1);
@@ -48,7 +51,14 @@ const Edit = (props) => {
         const fontSize = parseFloat(fontSizeStr);
         const padding = parseFloat(paddingStr);
 
-        setWidth(width - 2 * padding);
+        const marginLeft = parseFloat(
+            window.getComputedStyle(refTextArea.current).marginLeft
+        );
+        const marginRight = parseFloat(
+            window.getComputedStyle(refTextArea.current).marginRight
+        );
+
+        setWidth(width - 2 * padding - marginLeft - marginRight);
         setFontSize(fontSize);
 
         const charWidth = parseFloat(
@@ -60,7 +70,7 @@ const Edit = (props) => {
         // console.info({ charWidth, charHeight });
         setCharWidth(charWidth);
         setCharHeight(charHeight);
-    }, []);
+    });
 
     /* event callbacks */
 
@@ -126,12 +136,16 @@ const Edit = (props) => {
         textareaStyle,
     } = props;
 
+    const styleChar = { fontSize: fontSize };
+
     return (
         <section id={id} style={style}>
+            {/* header & controls */}
             <article id="edit-top">
                 <h2 id={headerId} style={headerStyle}>
                     Editor
                 </h2>
+
                 <Controls>
                     <Button
                         imagePath={downloadIconPath}
@@ -140,6 +154,13 @@ const Edit = (props) => {
                         downloadFunction={downloadTXT}
                     />
                 </Controls>
+
+                {/* font family && size */}
+                <Controls id="edit-top-font">
+                    <FontFamily id="edit-top-font-family" fontSize={fontSize} />
+                    <FontSize id="edit-top-font-size" fontSize={fontSize} />
+                </Controls>
+
                 <Controls>
                     <Button
                         imagePath={boldIconPath}
@@ -155,6 +176,7 @@ const Edit = (props) => {
                     />
                 </Controls>
             </article>
+            {/* line numbers */}
             <LineNumbers
                 text={state.input}
                 width={width}
@@ -163,10 +185,11 @@ const Edit = (props) => {
                 charWidth={charWidth}
                 charHeight={charHeight}
             />
-            {/* invisible element */}
-            <span id="count-char" ref={refCharSize}>
+            {/* invisible measure element */}
+            <span id="count-char" style={styleChar} ref={refCharSize}>
                 a
             </span>
+            {/* text area */}
             <textarea
                 id={textareaId}
                 style={textareaStyle}

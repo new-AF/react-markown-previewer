@@ -1,0 +1,61 @@
+#edit-top-font-size {
+    --border-color-1: lightgray;
+    --border-color-2: darkgray;
+    --border-color-3: rgba(0, 0, 128, 0.5);
+    --border-radius: 0.5rem;
+
+    display: grid;
+    grid-template-areas:
+        "labelSize labelSize"
+        "number number"
+        "dec inc";
+
+    grid-template-rows: 1fr 2fr 1fr;
+
+    /* for border-radius to show properly */
+    overflow: hidden;
+    border-radius: var(--border-radius);
+
+    transition: box-shadow 50ms linear;
+}
+/* on 'hover' */
+.edit-top-font-size_class_1 {
+    box-shadow: 0 0 0.5rem 0 var(--border-color-2) !important;
+}
+/* on click */
+.edit-top-font-size_class_2 {
+    box-shadow: 0 0 0.5rem 0 var(--border-color-3) !important;
+}
+#edit-top-font-size-labelSize {
+    --margin-left-right: 1rem;
+
+    margin: 0 var(--margin-left-right);
+
+    grid-area: labelSize;
+    text-align: center;
+
+    border-bottom: thin solid var(--border-color-1);
+}
+
+#edit-top-font-size-number {
+    grid-area: number;
+    border: none;
+
+    text-align: center;
+
+    border-bottom: thin solid var(--border-color-1);
+}
+/* disable on click outline */
+#edit-top-font-size-number:focus-visible {
+    outline: none;
+}
+#edit-top-font-size-dec {
+    grid-area: dec;
+    cursor: pointer;
+    border: none;
+}
+#edit-top-font-size-inc {
+    grid-area: inc;
+    cursor: pointer;
+    border: none;
+}

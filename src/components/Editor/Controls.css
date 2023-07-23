@@ -1,5 +1,4 @@
 :root {
-    --padding-left: 2rem;
 }
 .controls {
     grid-area: controls;
@@ -12,6 +11,8 @@
     /* border-bottom: thin solid lightskyblue; */
     display: flex;
     flex-wrap: wrap;
+
+    padding: 0 1rem;
 }
 .controls > * {
     flex: 1;
