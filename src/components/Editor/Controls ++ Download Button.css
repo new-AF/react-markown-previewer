@@ -1,0 +1,6 @@
+#edit-top-download {
+    --border-radius: 0.5rem;
+    /* for border-radius to show properly */
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}

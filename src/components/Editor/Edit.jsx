@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setInput } from "../../slice";
+import { set_font_size } from "./Edit.slice";
 
 import boldIconPath from "./assets/bold-solid.svg";
 import downloadIconPath from "./assets/circle-down-regular.svg";
@@ -22,12 +23,10 @@ const Edit = (props) => {
     /* redux slice */
     const dispatch = useDispatch();
     const state = useSelector((state) => state["text-slice"]);
+    const { fontSize } = useSelector((state) => state["edit"]);
 
     /* useState */
-    const [[fontSize, setFontSize], [width, setWidth]] = [
-        useState(undefined),
-        useState(181),
-    ];
+    const [[width, setWidth]] = [useState(181)];
     const [charWidth, setCharWidth] = useState(1);
     const [charHeight, setCharHeight] = useState(1);
 
@@ -60,7 +59,7 @@ const Edit = (props) => {
         );
 
         setWidth(width - 2 * padding - marginLeft - marginRight);
-        setFontSize(fontSize);
+        dispatch(set_font_size(fontSize));
 
         const charWidth = parseFloat(
             window.getComputedStyle(refCharSize.current).width
@@ -71,7 +70,7 @@ const Edit = (props) => {
         // console.info({ charWidth, charHeight });
         setCharWidth(charWidth);
         setCharHeight(charHeight);
-    });
+    }, []);
 
     /* event callbacks */
 
@@ -134,9 +133,10 @@ const Edit = (props) => {
 
         style,
         headerStyle,
-        textareaStyle,
+        textareaStyleOld,
     } = props;
 
+    const styleTextArea = { fontSize };
     const styleChar = { fontSize: fontSize };
 
     return (
@@ -151,7 +151,7 @@ const Edit = (props) => {
                     <Button
                         id="edit-top-download"
                         imagePath={downloadIconPath}
-                        text={"Download Markdown (.md) File"}
+                        text={"Download Markdown File (.md)"}
                         download={true}
                         downloadFunction={downloadTXT}
                     />
@@ -159,8 +159,8 @@ const Edit = (props) => {
 
                 {/* font family && size */}
                 <Controls id="edit-top-font">
-                    <FontFamily id="edit-top-font-family" fontSize={fontSize} />
-                    <FontSize id="edit-top-font-size" fontSize={fontSize} />
+                    <FontFamily id="edit-top-font-family" />
+                    <FontSize id="edit-top-font-size" />
                 </Controls>
 
                 <Controls>
@@ -194,7 +194,7 @@ const Edit = (props) => {
             {/* text area */}
             <textarea
                 id={textareaId}
-                style={textareaStyle}
+                style={styleTextArea}
                 value={state.input}
                 onChange={onInput}
                 onScroll={onScroll}

@@ -31,7 +31,7 @@ function FontFamily({ id, fontSize }) {
     }
     function onClick() {
         setBoxShadow(boxShadow3);
-        refInput.current.focus();
+        refSelect.current.focus();
     }
     /* input */
     function onFocus() {

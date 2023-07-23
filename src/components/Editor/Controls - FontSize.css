@@ -36,10 +36,13 @@
 }
 
 #edit-top-font-size-number {
+    --border-top-bottom-color: lightgray;
     grid-area: number;
     border: none;
 
     text-align: center;
+    border-top: thin solid var(--border-top-bottom-color);
+    border-bottom: thin solid var(--border-top-bottom-color);
 }
 /* disable on click outline */
 #edit-top-font-size-number:focus-visible {

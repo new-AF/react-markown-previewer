@@ -1,9 +1,20 @@
 import { useRef, useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import Button from "./Controls-Button";
 import ClassList from "./ClassList";
 
+import incrementIconPath from "./assets/plus-solid.svg";
+import decrementIconPath from "./assets/minus-solid.svg";
+
 import "./Controls - FontSize.css";
+import { set_font_size } from "./Edit.slice";
 
 function FontSize({ id }) {
+    const dispatch = useDispatch();
+    const { fontSize } = useSelector((state) => state["edit"]);
+
     const boxShadow1 = "0 0 0.5rem 0 lightgray";
     const boxShadow2 = "0 0 0.5rem 0 darkgray";
     const boxShadow3 = "0 0 0.5rem 0 rgba(0, 0, 128, 0.5)";
@@ -42,6 +53,25 @@ function FontSize({ id }) {
     function onBlur() {
         setBoxShadow(boxShadow1);
     }
+    function onChange(event) {
+        const str = event.target.value;
+        if (str === "") {
+            dispatch(set_font_size(1));
+            return;
+        }
+        const num = parseFloat(str);
+        dispatch(set_font_size(isNaN(num) ? 1 : num));
+    }
+    /* inc dec buttons */
+    function decOnClick() {
+        if (fontSize <= 1) {
+            dispatch(set_font_size(1));
+        }
+        dispatch(set_font_size(fontSize - 1));
+    }
+    function incOnClick() {
+        dispatch(set_font_size(fontSize + 1));
+    }
     return (
         <div
             id={id}
@@ -62,10 +92,20 @@ function FontSize({ id }) {
                 ref={refInput}
                 onBlur={onBlur}
                 onFocus={onFocus}
+                value={fontSize}
+                onChange={onChange}
             />
 
-            <button id={newId("dec")}>--</button>
-            <button id={newId("inc")}>++</button>
+            <Button
+                id={newId("dec")}
+                imagePath={decrementIconPath}
+                onClick={decOnClick}
+            />
+            <Button
+                id={newId("inc")}
+                imagePath={incrementIconPath}
+                onClick={incOnClick}
+            />
         </div>
     );
 }
