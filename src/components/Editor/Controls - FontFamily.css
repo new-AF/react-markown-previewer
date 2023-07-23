@@ -1,16 +1,26 @@
 #edit-top-font-family {
+    --border-radius: 0.5rem;
+
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
         "labelFamily"
+        "select"
         "select";
+
+    /* for border-radius to show properly */
+    overflow: hidden;
+    border-radius: var(--border-radius);
 }
 #edit-top-font-family-labelFamily {
-    --padding-bottom: 1rem;
+    --padding-top-bottom: 0.5rem;
+    padding: var(--padding-top-bottom) 0;
+
     grid-area: labelFamily;
     text-align: center;
 }
 #edit-top-font-family-select {
     grid-area: select;
     cursor: pointer;
+    border: none;
 }
