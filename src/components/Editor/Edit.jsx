@@ -6,12 +6,21 @@ import { set_font_size } from "./Edit.slice";
 import boldIconPath from "./assets/bold-solid.svg";
 import downloadIconPath from "./assets/circle-down-regular.svg";
 import italicIconPath from "./assets/italic-solid.svg";
+import headingIconPath from "./assets/heading-solid.svg";
+import oneIconPath from "./assets/1-solid.svg";
+import twoIconPath from "./assets/2-solid.svg";
+import threeIconPath from "./assets/3-solid.svg";
+import fourIconPath from "./assets/4-solid.svg";
+import fiveIconPath from "./assets/5-solid.svg";
+import sixIconPath from "./assets/6-solid.svg";
 
 import Controls from "./Controls.jsx";
 import LineNumbers from "./LineNumbers.jsx";
 
 import "./Controls ++ Font.css";
 import "./Controls ++ Download Button.css";
+import "./Controls ++ Headings.css";
+
 import Button from "./Controls-Button.jsx";
 import FontFamily from "./Controls - FontFamily.jsx";
 import FontSize from "./Controls - FontSize.jsx";
@@ -157,12 +166,36 @@ const Edit = (props) => {
                     />
                 </Controls>
 
-                {/* font family && size */}
+                {/* font && size */}
                 <Controls id="edit-top-font">
                     <FontFamily id="edit-top-font-family" />
                     <FontSize id="edit-top-font-size" />
                 </Controls>
 
+                {/* lists */}
+                <Controls id="edit-top-list"></Controls>
+
+                {/* headings */}
+                <Controls id="edit-top-headings">
+                    {[
+                        [oneIconPath],
+                        [twoIconPath],
+                        [threeIconPath],
+                        [fourIconPath],
+                        [fiveIconPath],
+                        [sixIconPath],
+                    ].map((array, index) => {
+                        const [iconPath] = array;
+                        return (
+                            <Button
+                                imagePath={[headingIconPath, iconPath]}
+                                text="Italic                 "
+                                hideText={true}
+                                onClick={doItalic}
+                            />
+                        );
+                    })}
+                </Controls>
                 <Controls>
                     <Button
                         imagePath={boldIconPath}

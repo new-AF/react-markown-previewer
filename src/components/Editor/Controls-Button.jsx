@@ -41,10 +41,7 @@ function Button({
         downloadElement.download = fileName;
         downloadElement.click();
     }
-    const elementButton =
-        hideText === true ? undefined : (
-            <span className="button-text">{text}</span>
-        );
+
     return (
         <button
             id={id}
@@ -57,10 +54,19 @@ function Button({
         >
             {/* support multiple icons */}
             <div className="button-icons">
-                <img className={buttonClassName} src={imagePath} />
+                {(Array.isArray(imagePath) ? imagePath : [imagePath]).map(
+                    (str, index) => (
+                        <img
+                            key={index}
+                            className={buttonClassName}
+                            src={str}
+                        />
+                    )
+                )}
             </div>
-
-            {elementButton}
+            {hideText === true ? undefined : (
+                <span className="button-text">{text}</span>
+            )}
         </button>
     );
 }

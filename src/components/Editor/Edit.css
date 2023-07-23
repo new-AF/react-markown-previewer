@@ -64,6 +64,7 @@
     background-color: aliceblue;
     color: black;
 }
+/* width is < tablet width */
 @media only screen and (max-width: 767px) {
     #edit {
         grid-column: 1;
