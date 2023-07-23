@@ -1,5 +1,9 @@
 #edit-top-font {
     font-family: var(--sans-serif);
+    --margin-top-bottom: 2rem;
+
     --gap: 0 1rem;
     gap: var(--gap);
+
+    margin: var(--margin-top-bottom) 0;
 }

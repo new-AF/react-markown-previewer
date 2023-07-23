@@ -14,6 +14,7 @@
     padding: 0.5rem 0.5rem;
 
     transition: all var(--transition);
+    border: none;
 }
 .global-button-hover {
     filter: invert(58%) sepia(30%) saturate(7126%) hue-rotate(160deg)

@@ -10,6 +10,7 @@ import Controls from "./Controls.jsx";
 import LineNumbers from "./LineNumbers.jsx";
 
 import "./Controls ++ Font.css";
+import "./Controls ++ Download Button.css";
 import Button from "./Controls-Button.jsx";
 import FontFamily from "./Controls - FontFamily.jsx";
 import FontSize from "./Controls - FontSize.jsx";
@@ -148,6 +149,7 @@ const Edit = (props) => {
 
                 <Controls>
                     <Button
+                        id="edit-top-download"
                         imagePath={downloadIconPath}
                         text={"Download Markdown (.md) File"}
                         download={true}

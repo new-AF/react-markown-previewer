@@ -5,6 +5,7 @@ import "./Controls-Button.css";
 
 /* download = true/false */
 function Button({
+    id,
     text,
     imagePath,
     download,
@@ -45,7 +46,8 @@ function Button({
             <span className="button-text">{text}</span>
         );
     return (
-        <div
+        <button
+            id={id}
             className="button"
             style={style}
             ref={ref}
@@ -59,7 +61,7 @@ function Button({
             </div>
 
             {elementButton}
-        </div>
+        </button>
     );
 }
 
