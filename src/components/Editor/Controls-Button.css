@@ -1,4 +1,5 @@
 .button {
+    --padding-top-bottom: 1rem;
     cursor: pointer;
     display: grid;
 
@@ -11,7 +12,7 @@
     align-items: center;
     justify-items: center;
 
-    padding: 0.5rem 0.5rem;
+    padding: var(--padding-top-bottom) 0.5rem;
 
     transition: all var(--transition);
     border: none;

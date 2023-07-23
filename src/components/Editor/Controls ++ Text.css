@@ -1,0 +1,4 @@
+#edit-top-text {
+    --padding-bottom: 1rem;
+    padding-bottom: var(--padding-bottom);
+}

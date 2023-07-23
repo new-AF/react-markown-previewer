@@ -13,6 +13,10 @@ import threeIconPath from "./assets/3-solid.svg";
 import fourIconPath from "./assets/4-solid.svg";
 import fiveIconPath from "./assets/5-solid.svg";
 import sixIconPath from "./assets/6-solid.svg";
+import unorderedListIconPath from "./assets/list-ul-solid.svg";
+import orderedListIconPath from "./assets/list-ol-solid.svg";
+import undoIconPath from "./assets/rotate-left-solid.svg";
+import redoIconPath from "./assets/rotate-right-solid.svg";
 
 import Controls from "./Controls.jsx";
 import LineNumbers from "./LineNumbers.jsx";
@@ -20,6 +24,8 @@ import LineNumbers from "./LineNumbers.jsx";
 import "./Controls ++ Font.css";
 import "./Controls ++ Download Button.css";
 import "./Controls ++ Headings.css";
+import "./Controls ++ List.css";
+import "./Controls ++ Text.css";
 
 import Button from "./Controls-Button.jsx";
 import FontFamily from "./Controls - FontFamily.jsx";
@@ -172,9 +178,6 @@ const Edit = (props) => {
                     <FontSize id="edit-top-font-size" />
                 </Controls>
 
-                {/* lists */}
-                <Controls id="edit-top-list"></Controls>
-
                 {/* headings */}
                 <Controls id="edit-top-headings">
                     {[
@@ -196,7 +199,23 @@ const Edit = (props) => {
                         );
                     })}
                 </Controls>
-                <Controls>
+
+                {/* lists */}
+                <Controls id="edit-top-list">
+                    <Button
+                        imagePath={unorderedListIconPath}
+                        text="Unordered List"
+                        hideText={true}
+                    />
+                    <Button
+                        imagePath={orderedListIconPath}
+                        text="Ordered List"
+                        hideText={true}
+                    />
+                </Controls>
+
+                {/* text bold italic */}
+                <Controls id="edit-top-text">
                     <Button
                         imagePath={boldIconPath}
                         text="Bold"
@@ -208,6 +227,20 @@ const Edit = (props) => {
                         text="Italic"
                         hideText={true}
                         onClick={doItalic}
+                    />
+                </Controls>
+
+                {/* undo redo */}
+                <Controls>
+                    <Button
+                        imagePath={undoIconPath}
+                        text="Undo"
+                        hideText={true}
+                    />
+                    <Button
+                        imagePath={redoIconPath}
+                        text="Redo"
+                        hideText={true}
                     />
                 </Controls>
             </article>
