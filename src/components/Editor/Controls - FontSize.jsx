@@ -20,16 +20,20 @@ function FontSize({ id }) {
     }
     /* increase shadow on 'hover' */
     function onMouseEnter() {
+        if (hasInputFocus()) {
+            return;
+        }
         setBoxShadow(boxShadow2);
     }
     function onMouseLeave() {
-        if (hasInputFocus() === true) {
+        if (hasInputFocus()) {
             return;
         }
         setBoxShadow(boxShadow1);
     }
     function onClick() {
         setBoxShadow(boxShadow3);
+        refInput.current.focus();
     }
     /* input */
     function onFocus() {
@@ -57,6 +61,7 @@ function FontSize({ id }) {
                 id={newId("number")}
                 ref={refInput}
                 onBlur={onBlur}
+                onFocus={onFocus}
             />
 
             <button id={newId("dec")}>--</button>
