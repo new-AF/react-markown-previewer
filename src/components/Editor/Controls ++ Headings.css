@@ -1,0 +1,4 @@
+#edit-top-headings {
+    --padding-bottom: 1rem;
+    padding-bottom: var(--padding-bottom);
+}
