@@ -59,13 +59,15 @@ function FontSize({ id }) {
             dispatch(set_font_size(1));
             return;
         }
-        const num = parseFloat(str);
-        dispatch(set_font_size(isNaN(num) ? 1 : num));
+        const numTry = parseFloat(str);
+        const num = isNaN(numTry) ? 1 : numTry;
+        dispatch(set_font_size(num));
     }
     /* inc dec buttons */
     function decOnClick() {
         if (fontSize <= 1) {
             dispatch(set_font_size(1));
+            return;
         }
         dispatch(set_font_size(fontSize - 1));
     }
