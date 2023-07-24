@@ -1,0 +1,5 @@
+#edit-top-link {
+    --padding-bottom: 0;
+    padding-bottom: var(--padding-bottom);
+    border-bottom: thick solid snow;
+}

@@ -15,6 +15,12 @@ import fiveIconPath from "./assets/5-solid.svg";
 import sixIconPath from "./assets/6-solid.svg";
 import unorderedListIconPath from "./assets/list-ul-solid.svg";
 import orderedListIconPath from "./assets/list-ol-solid.svg";
+import checkListIconPath from "./assets/list-check-solid.svg";
+import linkIconPath from "./assets/link-solid.svg";
+import imageIconPath from "./assets/image-solid.svg";
+import codeIconPath from "./assets/code-solid.svg";
+import blockIconPath from "./assets/bars-staggered-solid.svg";
+import dashIconPath from "./assets/window-minimize-solid.svg";
 import undoIconPath from "./assets/rotate-left-solid.svg";
 import redoIconPath from "./assets/rotate-right-solid.svg";
 
@@ -25,6 +31,9 @@ import "./Controls ++ Font.css";
 import "./Controls ++ Download Button.css";
 import "./Controls ++ Headings.css";
 import "./Controls ++ List.css";
+import "./Controls ++ Link.css";
+import "./Controls ++ Image.css";
+import "./Controls ++ Code.css";
 import "./Controls ++ Text.css";
 
 import Button from "./Controls-Button.jsx";
@@ -210,6 +219,43 @@ const Edit = (props) => {
                     <Button
                         imagePath={orderedListIconPath}
                         text="Ordered List"
+                        hideText={true}
+                    />
+                    <Button
+                        imagePath={checkListIconPath}
+                        text="Check List"
+                        hideText={true}
+                    />
+                </Controls>
+
+                {/* image */}
+                <Controls id="edit-top-image">
+                    <Button
+                        imagePath={imageIconPath}
+                        text="Image"
+                        hideText={true}
+                    />
+                </Controls>
+
+                {/* link */}
+                <Controls id="edit-top-link">
+                    <Button
+                        imagePath={linkIconPath}
+                        text="Link"
+                        hideText={true}
+                    />
+                </Controls>
+
+                {/* code block & inline */}
+                <Controls id="edit-top-code">
+                    <Button
+                        imagePath={[codeIconPath, blockIconPath]}
+                        text="Code Block"
+                        hideText={true}
+                    />
+                    <Button
+                        imagePath={[codeIconPath, dashIconPath]}
+                        text="Code Block"
                         hideText={true}
                     />
                 </Controls>
