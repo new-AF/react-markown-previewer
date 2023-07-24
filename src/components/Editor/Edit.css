@@ -67,6 +67,7 @@
 /* width is < tablet width */
 @media only screen and (max-width: 767px) {
     #edit {
+        --margin-bottom: 4rem;
         grid-column: 1;
         grid-row: 2;
         box-shadow: -0em -1em 2em -0.5em darkgray;
@@ -74,6 +75,7 @@
         border-top-right-radius: var(--border-radius);
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
+        margin-bottom: var(--margin-bottom);
 
         /* border-bottom: medium inset rgba(0, 0, 128, 0.25); */
     }

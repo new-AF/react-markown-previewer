@@ -52,10 +52,11 @@ body {
 /* ---------------------- mobile views ---------------------- */
 @media only screen and (max-width: 767px) {
     #app {
+        --gap-top-bottom: 0;
         grid-template-columns: 1fr;
         /* grid-template-rows: auto 60vh 1fr 5rem; */
         grid-template-rows: 10rem minmax(60vh, auto) 1fr 10rem;
-        gap: 2rem 0;
+        gap: var(--gap-top-bottom) 0;
         padding: 0 2rem;
     }
     #app > h1 {
