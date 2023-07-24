@@ -200,10 +200,10 @@ const Edit = (props) => {
                         const [iconPath] = array;
                         return (
                             <Button
+                                key={index}
                                 imagePath={[headingIconPath, iconPath]}
-                                text="Italic                 "
+                                text={`Heading ${index}`}
                                 hideText={true}
-                                onClick={doItalic}
                             />
                         );
                     })}
